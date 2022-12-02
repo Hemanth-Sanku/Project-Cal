@@ -40,9 +40,11 @@ class CFrame extends JFrame
 	}
 }
 //Calculator Tab
-class CalculatorTab extends JPanel
+class CalculatorTab extends JPanel implements ActionListener
 {
-	CalculatorTab()
+	JTextField tf;
+    JButton b1,b2,b3,b4,b5,b6,b7,b8,b9,b10,b11,b12,b13,b14,b15,b16,b17,b18;
+    CalculatorTab()
 	{
 		//Creating Label Panel
 		JPanel LabelPanel = new JPanel();
@@ -63,7 +65,7 @@ class CalculatorTab extends JPanel
 		JPanel tfPanel = new JPanel();
 
 		//Creating Text Field
-		JTextField tf= new JTextField(16);
+		tf= new JTextField(16);
 		tf.setEditable(false);
 
 		//Adding Text Field to Panel
@@ -76,24 +78,44 @@ class CalculatorTab extends JPanel
 		CalPanel.setLayout(new GridLayout(4,5,5,5));
 
 		//Creating Buttons
-		JButton b1=new JButton("7");
-		JButton b2=new JButton("8");
-		JButton b3=new JButton("9");
-		JButton b4=new JButton("/");
-		JButton b5=new JButton("-");
-		JButton b6=new JButton("4");
-		JButton b7=new JButton("5");
-		JButton b8=new JButton("6");
-		JButton b9=new JButton("X");
-		JButton b10=new JButton("+");
-		JButton b11=new JButton("1");
-		JButton b12=new JButton("2");
-		JButton b13=new JButton("3");
-		JButton b14=new JButton("%");
-		JButton b15=new JButton("C");
-		JButton b16=new JButton("0");
-		JButton b17=new JButton(".");
-		JButton b18=new JButton("=");
+		b1=new JButton("7");
+		b2=new JButton("8");
+		b3=new JButton("9");
+		b4=new JButton("/");
+		b5=new JButton("-");
+		b6=new JButton("4");
+		b7=new JButton("5");
+		b8=new JButton("6");
+		b9=new JButton("X");
+		b10=new JButton("+");
+		b11=new JButton("1");
+		b12=new JButton("2");
+		b13=new JButton("3");
+		b14=new JButton("%");
+		b15=new JButton("C");
+		b16=new JButton("0");
+		b17=new JButton(".");
+		b18=new JButton("=");
+
+        //Adding Action Listener to Buttons
+        b1.addActionListener(this);
+        b2.addActionListener(this);
+        b3.addActionListener(this);
+        b4.addActionListener(this);
+        b5.addActionListener(this);
+        b6.addActionListener(this);
+        b7.addActionListener(this);
+        b8.addActionListener(this);
+        b9.addActionListener(this);
+        b10.addActionListener(this);
+        b11.addActionListener(this);
+        b12.addActionListener(this);
+        b13.addActionListener(this);
+        b14.addActionListener(this);
+        b15.addActionListener(this);
+        b16.addActionListener(this);
+        b17.addActionListener(this);
+        b18.addActionListener(this);
 
 		//Adding Colors to Buttons
 		b4.setBackground(Color.orange);
@@ -139,6 +161,10 @@ class CalculatorTab extends JPanel
 		//Adding tp to Frame
 		add(mp);
 	}
+    public void actionPerformed(ActionEvent e1)
+    {
+        tf.setText(e1.getActionCommand());
+    }
 }
 //Unit Converter Tab
 class UnitConverterTab extends JPanel
