@@ -174,13 +174,13 @@ class CalculatorTab extends JPanel implements ActionListener
 			{
 				s2=sm;
 				System.out.println("s1="+s1+" o1="+o1+" s2="+s2);
-				tf.setText("s2="+s2);
+				tf.setText(s2);
 			}
 			else
 			{
 				s1=sm;
 				System.out.println("s1="+s1);
-				tf.setText("s1="+s1);
+				tf.setText(s1);
 			}
         }
 		else if (s.charAt(0) == 'X' || s.charAt(0) == '+' || s.charAt(0) == '-' || s.charAt(0) == '/' || s.charAt(0) == '%') 
@@ -194,15 +194,7 @@ class CalculatorTab extends JPanel implements ActionListener
 				tf.setText(s1+o1);
 			}
 			
-		else if (s.charAt(0) == 'C') 
-        {
-			sm="";
-			s1="";
-			s2="";
-			o1="";
-			o2="";
-            tf.setText(sm);
-        }
+		
 		else
 			{
 				o2=sm.replaceAll("[0-9]", "");
@@ -255,6 +247,70 @@ class CalculatorTab extends JPanel implements ActionListener
 				}
 			}
         }
+		else if (s.charAt(0) == 'C') 
+        {
+			sm="";
+			s1="";
+			s2="";
+			o1="";
+			o2="";
+            tf.setText(sm);
+        }
+		else if (s.charAt(0) == '=') 
+        {
+			if (o1.equals("+"))
+				{
+					sc = (Double.parseDouble(s1) + Double.parseDouble(s2));
+					s1=String.valueOf(sc);
+					System.out.println("s1="+s1);
+					tf.setText(s1+(sm.replaceAll("[0-9]", "")));
+					sm="";
+					s2="";
+					o1="";
+					o2="";
+					
+				}
+				else if (o1.equals("-"))
+				{
+					sc = (Double.parseDouble(s1) - Double.parseDouble(s2));
+					s1=String.valueOf(sc);
+					tf.setText(s1+(sm.replaceAll("[0-9]", "")));
+					sm="";
+					s2="";
+					o1="";
+					o2="";
+				}
+				else if (o1.equals("X"))
+				{
+					sc = (Double.parseDouble(s1) * Double.parseDouble(s2));
+					s1=String.valueOf(sc);
+					tf.setText(s1+(sm.replaceAll("[0-9]", "")));
+					sm="";
+					s2="";
+					o1="";
+					o2="";
+				}
+				else if (o1.equals("/"))
+				{
+					sc = (Double.parseDouble(s1) / Double.parseDouble(s2));
+					s1=String.valueOf(sc);
+					tf.setText(s1+(sm.replaceAll("[0-9]", "")));
+					sm="";
+					s2="";
+					o1="";
+					o2="";
+				}
+				else if (o1.equals("%"))
+				{
+					sc = (Double.parseDouble(s1) % Double.parseDouble(s2));
+					s1=String.valueOf(sc);
+					tf.setText(s1+(sm.replaceAll("[0-9]", "")));
+					sm="";
+					s2="";
+					o1="";
+					o2="";
+				}
+        }
 	}	
 }
 //Unit Converter Tab
@@ -262,6 +318,14 @@ class UnitConverterTab extends JPanel
 {
 	UnitConverterTab()
 	{
+		/*JTabbedPane utp=new JTabbedPane();
+
+		//Creating Tabs 
+		utp.add("Area",new CalculatorTab());
+		utp.add("Mass",new UnitConverterTab());
+		utp.add("Speed",new MoreTab());
+		utp.setFont(new Font("Helvetica", Font.BOLD, 24));*/
+
 		//Unit Converter Panel
 		JPanel ucLabelPanel = new JPanel();
 
