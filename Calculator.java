@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.math.*;
 import javax.swing.*;
 import javax.swing.event.*;
 import java.awt.event.*;
@@ -44,6 +45,8 @@ class CalculatorTab extends JPanel implements ActionListener
 {
 	JTextField tf;
     JButton b1,b2,b3,b4,b5,b6,b7,b8,b9,b10,b11,b12,b13,b14,b15,b16,b17,b18;
+    String sm="",s1="",s2="",o1="",o2="";
+	double i=0,j=0,k=0,sc;
     CalculatorTab()
 	{
 		//Creating Label Panel
@@ -163,8 +166,96 @@ class CalculatorTab extends JPanel implements ActionListener
 	}
     public void actionPerformed(ActionEvent e1)
     {
-        tf.setText(e1.getActionCommand());
-    }
+        String s=e1.getActionCommand();
+		if((s.charAt(0) >= '0' && s.charAt(0) <= '9') || s.charAt(0) == '.')
+        {
+            sm=sm.concat(s);
+			if(!o1.equals(""))
+			{
+				s2=sm;
+				System.out.println("s1="+s1+" o1="+o1+" s2="+s2);
+				tf.setText("s2="+s2);
+			}
+			else
+			{
+				s1=sm;
+				System.out.println("s1="+s1);
+				tf.setText("s1="+s1);
+			}
+        }
+		else if (s.charAt(0) == 'X' || s.charAt(0) == '+' || s.charAt(0) == '-' || s.charAt(0) == '/' || s.charAt(0) == '%') 
+        {
+			sm=sm.concat(s);
+			if(o1.equals(""))
+			{
+				//Operator(sym)
+				o1=sm.replaceAll("[0-9]", "");
+				sm="";
+				tf.setText(s1+o1);
+			}
+			
+		else if (s.charAt(0) == 'C') 
+        {
+			sm="";
+			s1="";
+			s2="";
+			o1="";
+			o2="";
+            tf.setText(sm);
+        }
+		else
+			{
+				o2=sm.replaceAll("[0-9]", "");
+				if (o1.equals("+"))
+				{
+					sc = (Double.parseDouble(s1) + Double.parseDouble(s2));
+					s1=String.valueOf(sc);
+					System.out.println("s1="+s1);
+					tf.setText(s1+(sm.replaceAll("[0-9]", "")));
+					sm="";
+					s2="";
+					o1=o2;
+					
+				}
+				else if (o1.equals("-"))
+				{
+					sc = (Double.parseDouble(s1) - Double.parseDouble(s2));
+					s1=String.valueOf(sc);
+					tf.setText(s1+(sm.replaceAll("[0-9]", "")));
+					sm="";
+					s2="";
+					o1=o2;
+				}
+				else if (o1.equals("X"))
+				{
+					sc = (Double.parseDouble(s1) * Double.parseDouble(s2));
+					s1=String.valueOf(sc);
+					tf.setText(s1+(sm.replaceAll("[0-9]", "")));
+					sm="";
+					s2="";
+					o1=o2;
+				}
+				else if (o1.equals("/"))
+				{
+					sc = (Double.parseDouble(s1) / Double.parseDouble(s2));
+					s1=String.valueOf(sc);
+					tf.setText(s1+(sm.replaceAll("[0-9]", "")));
+					sm="";
+					s2="";
+					o1=o2;
+				}
+				else if (o1.equals("%"))
+				{
+					sc = (Double.parseDouble(s1) % Double.parseDouble(s2));
+					s1=String.valueOf(sc);
+					tf.setText(s1+(sm.replaceAll("[0-9]", "")));
+					sm="";
+					s2="";
+					o1=o2;
+				}
+			}
+        }
+	}	
 }
 //Unit Converter Tab
 class UnitConverterTab extends JPanel
@@ -185,6 +276,8 @@ class UnitConverterTab extends JPanel
 
 		//Unit Converter Buttons Panel
 		JPanel ucmbPanel=new JPanel();
+
+        //Creating Menu Buttons
 		JButton ucmb1=new JButton("Area");
 		JButton ucmb2=new JButton("Mass");
 		JButton ucmb3=new JButton("Length");
