@@ -418,6 +418,7 @@ class UnitConverterTab extends JPanel
 			//Adding layout to Panel
 			ap.setLayout(new GridLayout(3,2,5,5));
 
+			//Adding constraints(only number) to TextFields
 			ftf.addKeyListener(new KeyAdapter() {
 				public void keyPressed(KeyEvent ke) {
 				   String value = ftf.getText();
@@ -429,7 +430,6 @@ class UnitConverterTab extends JPanel
 				   }
 				}
 			 });
-
 			 ttf.addKeyListener(new KeyAdapter() {
 				public void keyPressed(KeyEvent ke) {
 				   String value = ttf.getText();
