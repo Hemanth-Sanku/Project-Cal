@@ -1,10 +1,14 @@
+//Importing Libraries
 import java.awt.*;
 import java.math.*;
 import javax.swing.*;
 import javax.swing.event.*;
 import java.awt.event.*;
+
+//Creating Class
 class CFrame extends JFrame
 {
+	//Creating Frame
 	CFrame()
 	{
 		//Creating Tab Pane
@@ -32,6 +36,7 @@ class CFrame extends JFrame
 
 		//Setting Frame Size
 		f.setSize(600,400);
+		f.setResizable( false );
 
 		//Setting Frame Visibility
 		f.setVisible(true);
@@ -69,6 +74,7 @@ class CalculatorTab extends JPanel implements ActionListener
 
 		//Creating Text Field
 		tf= new JTextField(16);
+		tf.setHorizontalAlignment(JTextField.RIGHT);
 		tf.setEditable(false);
 
 		//Adding Text Field to Panel
@@ -94,8 +100,8 @@ class CalculatorTab extends JPanel implements ActionListener
 		b11=new JButton("1");
 		b12=new JButton("2");
 		b13=new JButton("3");
-		b14=new JButton("%");
-		b15=new JButton("C");
+		b14=new JButton("CE");
+		b15=new JButton("AC");
 		b16=new JButton("0");
 		b17=new JButton(".");
 		b18=new JButton("=");
@@ -125,7 +131,7 @@ class CalculatorTab extends JPanel implements ActionListener
 		b5.setBackground(Color.orange);
 		b9.setBackground(Color.orange);
 		b10.setBackground(Color.orange);
-		b14.setBackground(Color.orange);
+		b14.setBackground(Color.cyan);
 		b15.setBackground(Color.red);
 		b17.setBackground(Color.gray);
 		b18.setBackground(Color.green);
@@ -166,7 +172,10 @@ class CalculatorTab extends JPanel implements ActionListener
 	}
     public void actionPerformed(ActionEvent e1)
     {
-        String s=e1.getActionCommand();
+        //Creating String to store the value of the button
+		String s=e1.getActionCommand();
+		
+		//Algorithm
 		if((s.charAt(0) >= '0' && s.charAt(0) <= '9') || s.charAt(0) == '.')
         {
             sm=sm.concat(s);
@@ -188,17 +197,16 @@ class CalculatorTab extends JPanel implements ActionListener
 			sm=sm.concat(s);
 			if(o1.equals(""))
 			{
-				//Operator(sym)
 				o1=sm.replaceAll("[0-9]", "");
 				sm="";
-				tf.setText(s1+o1);
+				tf.setText(s1+" "+o1);
 			}
-			
-		
-		else
+			else
 			{
 				o2=sm.replaceAll("[0-9]", "");
-				if (o1.equals("+"))
+
+				//Calculation Algorithm
+				if (o1.equals("+") || o1.equals(".+"))
 				{
 					sc = (Double.parseDouble(s1) + Double.parseDouble(s2));
 					s1=String.valueOf(sc);
@@ -207,7 +215,7 @@ class CalculatorTab extends JPanel implements ActionListener
 					sm="";
 					s2="";
 					o1=o2;
-					
+						
 				}
 				else if (o1.equals("-"))
 				{
@@ -236,18 +244,10 @@ class CalculatorTab extends JPanel implements ActionListener
 					s2="";
 					o1=o2;
 				}
-				else if (o1.equals("%"))
-				{
-					sc = (Double.parseDouble(s1) % Double.parseDouble(s2));
-					s1=String.valueOf(sc);
-					tf.setText(s1+(sm.replaceAll("[0-9]", "")));
-					sm="";
-					s2="";
-					o1=o2;
-				}
 			}
-        }
-		else if (s.charAt(0) == 'C') 
+		}
+		//AC Button Action
+		else if (s.equals("AC")) 
         {
 			sm="";
 			s1="";
@@ -256,9 +256,25 @@ class CalculatorTab extends JPanel implements ActionListener
 			o2="";
             tf.setText(sm);
         }
+		//CE Button Action
+		else if (s.equals("CE")) 
+        {
+			sm=sm.substring(0, sm.length()-1);
+            tf.setText(sm);
+			if(s2.equals(""))
+			{
+				s1=sm;
+			}
+			else if((!s1.equals("")))
+			{
+				s2=sm;
+			}
+        }
+		//Equals Button Action
 		else if (s.charAt(0) == '=') 
         {
-			if (o1.equals("+"))
+			//Calculation Algorithm
+			if (o1.equals("+") || o1.equals(".+"))
 				{
 					sc = (Double.parseDouble(s1) + Double.parseDouble(s2));
 					s1=String.valueOf(sc);
@@ -318,60 +334,189 @@ class UnitConverterTab extends JPanel
 {
 	UnitConverterTab()
 	{
-		/*JTabbedPane utp=new JTabbedPane();
-
-		//Creating Tabs 
-		utp.add("Area",new CalculatorTab());
-		utp.add("Mass",new UnitConverterTab());
-		utp.add("Speed",new MoreTab());
-		utp.setFont(new Font("Helvetica", Font.BOLD, 24));*/
-
-		//Unit Converter Panel
+		//Creating Unit Converter Panel
 		JPanel ucLabelPanel = new JPanel();
 
-		//Unit Converter Label
+		//Creating Unit Converter Label
 		JLabel uc=new JLabel("Unit Converter");
         uc.setFont(new Font("Helvetica", Font.BOLD, 28));
+
+		//Applying Border Layout to Unit Converter Label Panel
+		ucLabelPanel.setLayout(new BorderLayout());
+
+		//Adding Label to Panel
+		ucLabelPanel.add(uc,"North");
 		uc.setHorizontalAlignment(JLabel.CENTER);
 		uc.setVerticalAlignment(JLabel.CENTER);
 
+		//Creating Menu Panel
+		JPanel ucMenuPanel = new JPanel();
+		
+		//Creating Tabbed Pane for Menu
+		JTabbedPane utp=new JTabbedPane(JTabbedPane.BOTTOM);
+
+		//Applying Border Layout to Unit Converter Label Panel
+		ucMenuPanel.setLayout(new BorderLayout());
+
 		//Adding Label to Panel
-		ucLabelPanel.add(uc);
+		ucMenuPanel.add(utp,"North");
 
-		//Unit Converter Buttons Panel
-		JPanel ucmbPanel=new JPanel();
+		//Creating Tabs 
+		utp.add("Area",new Area());
+		utp.add("Mass",new Mass());
+		utp.add("Length",new Length());
+		utp.add("Speed",new Speed());
+		utp.add("Volume",new Volume());
+		utp.add("Temperature",new Temperature());
+		utp.setFont(new Font("Helvetica", Font.BOLD, 12));
 
-        //Creating Menu Buttons
-		JButton ucmb1=new JButton("Area");
-		JButton ucmb2=new JButton("Mass");
-		JButton ucmb3=new JButton("Length");
-		JButton ucmb4=new JButton("Speed");
-		JButton ucmb5=new JButton("Volume");
-		JButton ucmb6=new JButton("Temperature");
+		//Adding Tabs to Panel
+		ucMenuPanel.add(utp);
 
-		//Grid Layout
-		ucmbPanel.setLayout(new GridLayout(3,3,20,40));
+		//Creating Unit Converter Main Panel
+		JPanel ucmp = new JPanel();
 
-		//Creating Main Panel
-		JPanel mp = new JPanel();
+		//Applying Box Layout to Unit Converter Main Panel
+		ucmp.setLayout(new BoxLayout(ucmp, BoxLayout.Y_AXIS));
 
-		//Unit Converter Menu Buttons Panel
-		ucmbPanel.add(ucmb1);
-		ucmbPanel.add(ucmb2);
-		ucmbPanel.add(ucmb3);
-		ucmbPanel.add(ucmb4);
-		ucmbPanel.add(ucmb5);
-		ucmbPanel.add(ucmb6);
+		//Adding all Panels to Main Panel
+		ucmp.add(ucLabelPanel);
+		ucmp.add(ucMenuPanel);
+		
+		//Adding Unit Converter Main Panel to Frame
+		add(ucmp);
+	}
+	class Area extends JPanel
+	{
+		JTextField ftf,ttf;
+		JComboBox acb1,acb2;
+		JButton conv;
+		Area()
+		{
+			//Creating Area Buttons Panel
+			JPanel ap=new JPanel();
 
-		//Box Layout
-		mp.setLayout(new BoxLayout(mp, BoxLayout.Y_AXIS));
+			//Creating From ->TextField, Combobox
+			String from[]={"km","mm","cm"};
+			ftf=new JTextField(6);
+			acb1=new JComboBox<>(from);
 
-		//Adding Panels to Main Panel
-		mp.add(ucLabelPanel);
-		mp.add(ucmbPanel);
+			//Creating to ->TextField, Combobox
+			String to[]={"km","mm","cm"};
+			ttf=new JTextField(6);
+			acb2=new JComboBox<>(to);
 
-		//Adding Main Panel to Frame
-		add(mp);
+			//Creating Convert Button
+			conv=new JButton("Convert");
+
+			//Adding Color to Button
+			conv.setBackground(Color.green);
+
+			//Adding Action Listener to the Convert Button
+			//conv.addActionListener(this);
+
+			//Adding layout to Panel
+			ap.setLayout(new GridLayout(3,2,5,5));
+
+			ftf.addKeyListener(new KeyAdapter() {
+				public void keyPressed(KeyEvent ke) {
+				   String value = ftf.getText();
+				   int l = value.length();
+				   if (ke.getKeyChar() >= '0' && ke.getKeyChar() <= '9') {
+					  ftf.setEditable(true);
+				   } else {
+					  ftf.setEditable(false);
+				   }
+				}
+			 });
+
+			 ttf.addKeyListener(new KeyAdapter() {
+				public void keyPressed(KeyEvent ke) {
+				   String value = ttf.getText();
+				   int l = value.length();
+				   if (ke.getKeyChar() >= '0' && ke.getKeyChar() <= '9') {
+					  ttf.setEditable(true);
+				   } else {
+					  ttf.setEditable(false);
+				   }
+				}
+			 });
+
+			//Adding All to Panel
+			ap.add(ftf);
+			ap.add(acb1);
+			ap.add(ttf);
+			ap.add(acb2);
+			ap.add(conv);
+
+			//Adding pannel to Frame
+			add(ap);
+		}
+	}
+	class Mass extends JPanel
+	{
+		Mass()
+		{
+			JButton b1,b2,b3;
+			b1=new JButton("America");
+			b2=new JButton("India");
+			b3=new JButton("Japan");
+			add(b1);
+			add(b2);
+			add(b3);
+		}
+	}
+	class Length extends JPanel
+	{
+		Length()
+		{
+			JButton b1,b2,b3;
+			b1=new JButton("America");
+			b2=new JButton("India");
+			b3=new JButton("Japan");
+			add(b1);
+			add(b2);
+			add(b3);
+		}
+	}
+	class Speed extends JPanel
+	{
+		Speed()
+		{
+			JButton b1,b2,b3;
+			b1=new JButton("America");
+			b2=new JButton("India");
+			b3=new JButton("Japan");
+			add(b1);
+			add(b2);
+			add(b3);
+		}
+	}
+	class Volume extends JPanel
+	{
+		Volume()
+		{
+			JButton b1,b2,b3;
+			b1=new JButton("America");
+			b2=new JButton("India");
+			b3=new JButton("Japan");
+			add(b1);
+			add(b2);
+			add(b3);
+		}
+	}
+	class Temperature extends JPanel
+	{
+		Temperature()
+		{
+			JButton b1,b2,b3;
+			b1=new JButton("America");
+			b2=new JButton("India");
+			b3=new JButton("Japan");
+			add(b1);
+			add(b2);
+			add(b3);
+		}
 	}
 }
 //More Tab
