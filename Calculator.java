@@ -1,6 +1,7 @@
 //Importing Libraries
 import java.awt.*;
 import java.math.*;
+import java.text.*;
 import javax.swing.*;
 import javax.swing.event.*;
 import java.awt.event.*;
@@ -330,7 +331,7 @@ class CalculatorTab extends JPanel implements ActionListener
 	}	
 }
 //Unit Converter Tab
-class UnitConverterTab extends JPanel
+class UnitConverterTab extends JPanel 
 {
 	UnitConverterTab()
 	{
@@ -386,24 +387,27 @@ class UnitConverterTab extends JPanel
 		//Adding Unit Converter Main Panel to Frame
 		add(ucmp);
 	}
-	class Area extends JPanel
+	class Area extends JPanel implements ActionListener
 	{
 		JTextField ftf,ttf;
 		JComboBox acb1,acb2;
 		JButton conv;
+		String sa;
+		double n;
 		Area()
 		{
 			//Creating Area Buttons Panel
 			JPanel ap=new JPanel();
 
 			//Creating From ->TextField, Combobox
-			String from[]={"km","mm","cm"};
+			String from[]={"Sq Meter","Sq Kilometer","Sq Centimeter","Sq Millimeter","Sq Centimeter","Acre","Hectare"};
 			ftf=new JTextField(6);
 			acb1=new JComboBox<>(from);
 
 			//Creating to ->TextField, Combobox
-			String to[]={"km","mm","cm"};
+			String to[]={"Sq Meter","Sq Kilometer","Sq Centimeter","Sq Millimeter","Sq Centimeter","Acre","Hectare"};
 			ttf=new JTextField(6);
+			ttf.setEditable(false);
 			acb2=new JComboBox<>(to);
 
 			//Creating Convert Button
@@ -413,7 +417,7 @@ class UnitConverterTab extends JPanel
 			conv.setBackground(Color.green);
 
 			//Adding Action Listener to the Convert Button
-			//conv.addActionListener(this);
+			conv.addActionListener(this);
 
 			//Adding layout to Panel
 			ap.setLayout(new GridLayout(3,2,5,5));
@@ -430,7 +434,7 @@ class UnitConverterTab extends JPanel
 				   }
 				}
 			 });
-			 ttf.addKeyListener(new KeyAdapter() {
+			 /*ttf.addKeyListener(new KeyAdapter() {
 				public void keyPressed(KeyEvent ke) {
 				   String value = ttf.getText();
 				   int l = value.length();
@@ -440,7 +444,7 @@ class UnitConverterTab extends JPanel
 					  ttf.setEditable(false);
 				   }
 				}
-			 });
+			 });*/
 
 			//Adding All to Panel
 			ap.add(ftf);
@@ -452,70 +456,517 @@ class UnitConverterTab extends JPanel
 			//Adding pannel to Frame
 			add(ap);
 		}
+		//Action Listener
+		public void actionPerformed(ActionEvent e1)
+		{
+			String s=e1.getActionCommand();
+			int i = Integer.MIN_VALUE;
+			if (s.equals("Convert"))
+			{
+				System.out.println(s);
+				System.out.println(acb1.getSelectedItem());
+				System.out.println(acb2.getSelectedItem());
+				if((acb1.getSelectedItem()).equals("Sq Meter") && (acb2.getSelectedItem()).equals("Sq Kilometer"))
+				{
+					n=(Double.parseDouble(ftf.getText()) * 0.000001);
+					//NumberFormat nf = NumberFormat.getInstance();
+    				//nf.setMinimumFractionDigits(7);
+					//sa=String.valueOf(nf.format(n));
+					sa=String.valueOf(n);
+					ttf.setText(sa);
+				}
+				if((acb1.getSelectedItem()).equals("Sq Kilometer") && (acb2.getSelectedItem()).equals("Sq Meter"))
+				{
+					n=(Double.parseDouble(ftf.getText()) * 1000000);
+					sa=String.valueOf(n);
+					ttf.setText(sa);
+				}
+			}
+		}
 	}
-	class Mass extends JPanel
+	class Mass extends JPanel implements ActionListener
 	{
+		JTextField ftf,ttf;
+		JComboBox acb1,acb2;
+		JButton conv;
+		String sa;
+		double n;
 		Mass()
 		{
-			JButton b1,b2,b3;
-			b1=new JButton("America");
-			b2=new JButton("India");
-			b3=new JButton("Japan");
-			add(b1);
-			add(b2);
-			add(b3);
+			//Creating Area Buttons Panel
+			JPanel ap=new JPanel();
+
+			//Creating From ->TextField, Combobox
+			String from[]={"Sq Meter","Sq Kilometer","Sq Centimeter","Sq Millimeter","Sq Centimeter","Acre","Hectare"};
+			ftf=new JTextField(6);
+			acb1=new JComboBox<>(from);
+
+			//Creating to ->TextField, Combobox
+			String to[]={"Sq Meter","Sq Kilometer","Sq Centimeter","Sq Millimeter","Sq Centimeter","Acre","Hectare"};
+			ttf=new JTextField(6);
+			ttf.setEditable(false);
+			acb2=new JComboBox<>(to);
+
+			//Creating Convert Button
+			conv=new JButton("Convert");
+
+			//Adding Color to Button
+			conv.setBackground(Color.green);
+
+			//Adding Action Listener to the Convert Button
+			conv.addActionListener(this);
+
+			//Adding layout to Panel
+			ap.setLayout(new GridLayout(3,2,5,5));
+
+			//Adding constraints(only number) to TextFields
+			ftf.addKeyListener(new KeyAdapter() {
+				public void keyPressed(KeyEvent ke) {
+				   String value = ftf.getText();
+				   int l = value.length();
+				   if (ke.getKeyChar() >= '0' && ke.getKeyChar() <= '9') {
+					  ftf.setEditable(true);
+				   } else {
+					  ftf.setEditable(false);
+				   }
+				}
+			 });
+			 /*ttf.addKeyListener(new KeyAdapter() {
+				public void keyPressed(KeyEvent ke) {
+				   String value = ttf.getText();
+				   int l = value.length();
+				   if (ke.getKeyChar() >= '0' && ke.getKeyChar() <= '9') {
+					  ttf.setEditable(true);
+				   } else {
+					  ttf.setEditable(false);
+				   }
+				}
+			 });*/
+
+			//Adding All to Panel
+			ap.add(ftf);
+			ap.add(acb1);
+			ap.add(ttf);
+			ap.add(acb2);
+			ap.add(conv);
+
+			//Adding pannel to Frame
+			add(ap);
+		}
+		//Action Listener
+		public void actionPerformed(ActionEvent e1)
+		{
+			String s=e1.getActionCommand();
+			int i = Integer.MIN_VALUE;
+			if (s.equals("Convert"))
+			{
+				System.out.println(s);
+				System.out.println(acb1.getSelectedItem());
+				System.out.println(acb2.getSelectedItem());
+				if((acb1.getSelectedItem()).equals("Sq Meter") && (acb2.getSelectedItem()).equals("Sq Kilometer"))
+				{
+					n=(Double.parseDouble(ftf.getText()) * 0.000001);
+					//NumberFormat nf = NumberFormat.getInstance();
+    				//nf.setMinimumFractionDigits(7);
+					//sa=String.valueOf(nf.format(n));
+					sa=String.valueOf(n);
+					ttf.setText(sa);
+				}
+				if((acb1.getSelectedItem()).equals("Sq Kilometer") && (acb2.getSelectedItem()).equals("Sq Meter"))
+				{
+					n=(Double.parseDouble(ftf.getText()) * 1000000);
+					sa=String.valueOf(n);
+					ttf.setText(sa);
+				}
+			}
 		}
 	}
-	class Length extends JPanel
+	class Length extends JPanel implements ActionListener
 	{
+		JTextField ftf,ttf;
+		JComboBox acb1,acb2;
+		JButton conv;
+		String sa;
+		double n;
 		Length()
 		{
-			JButton b1,b2,b3;
-			b1=new JButton("America");
-			b2=new JButton("India");
-			b3=new JButton("Japan");
-			add(b1);
-			add(b2);
-			add(b3);
+			//Creating Area Buttons Panel
+			JPanel ap=new JPanel();
+
+			//Creating From ->TextField, Combobox
+			String from[]={"Sq Meter","Sq Kilometer","Sq Centimeter","Sq Millimeter","Sq Centimeter","Acre","Hectare"};
+			ftf=new JTextField(6);
+			acb1=new JComboBox<>(from);
+
+			//Creating to ->TextField, Combobox
+			String to[]={"Sq Meter","Sq Kilometer","Sq Centimeter","Sq Millimeter","Sq Centimeter","Acre","Hectare"};
+			ttf=new JTextField(6);
+			ttf.setEditable(false);
+			acb2=new JComboBox<>(to);
+
+			//Creating Convert Button
+			conv=new JButton("Convert");
+
+			//Adding Color to Button
+			conv.setBackground(Color.green);
+
+			//Adding Action Listener to the Convert Button
+			conv.addActionListener(this);
+
+			//Adding layout to Panel
+			ap.setLayout(new GridLayout(3,2,5,5));
+
+			//Adding constraints(only number) to TextFields
+			ftf.addKeyListener(new KeyAdapter() {
+				public void keyPressed(KeyEvent ke) {
+				   String value = ftf.getText();
+				   int l = value.length();
+				   if (ke.getKeyChar() >= '0' && ke.getKeyChar() <= '9') {
+					  ftf.setEditable(true);
+				   } else {
+					  ftf.setEditable(false);
+				   }
+				}
+			 });
+			 /*ttf.addKeyListener(new KeyAdapter() {
+				public void keyPressed(KeyEvent ke) {
+				   String value = ttf.getText();
+				   int l = value.length();
+				   if (ke.getKeyChar() >= '0' && ke.getKeyChar() <= '9') {
+					  ttf.setEditable(true);
+				   } else {
+					  ttf.setEditable(false);
+				   }
+				}
+			 });*/
+
+			//Adding All to Panel
+			ap.add(ftf);
+			ap.add(acb1);
+			ap.add(ttf);
+			ap.add(acb2);
+			ap.add(conv);
+
+			//Adding pannel to Frame
+			add(ap);
+		}
+		//Action Listener
+		public void actionPerformed(ActionEvent e1)
+		{
+			String s=e1.getActionCommand();
+			int i = Integer.MIN_VALUE;
+			if (s.equals("Convert"))
+			{
+				System.out.println(s);
+				System.out.println(acb1.getSelectedItem());
+				System.out.println(acb2.getSelectedItem());
+				if((acb1.getSelectedItem()).equals("Sq Meter") && (acb2.getSelectedItem()).equals("Sq Kilometer"))
+				{
+					n=(Double.parseDouble(ftf.getText()) * 0.000001);
+					//NumberFormat nf = NumberFormat.getInstance();
+    				//nf.setMinimumFractionDigits(7);
+					//sa=String.valueOf(nf.format(n));
+					sa=String.valueOf(n);
+					ttf.setText(sa);
+				}
+				if((acb1.getSelectedItem()).equals("Sq Kilometer") && (acb2.getSelectedItem()).equals("Sq Meter"))
+				{
+					n=(Double.parseDouble(ftf.getText()) * 1000000);
+					sa=String.valueOf(n);
+					ttf.setText(sa);
+				}
+			}
 		}
 	}
-	class Speed extends JPanel
+	class Speed extends JPanel implements ActionListener
 	{
+		JTextField ftf,ttf;
+		JComboBox acb1,acb2;
+		JButton conv;
+		String sa;
+		double n;
 		Speed()
 		{
-			JButton b1,b2,b3;
-			b1=new JButton("America");
-			b2=new JButton("India");
-			b3=new JButton("Japan");
-			add(b1);
-			add(b2);
-			add(b3);
+			//Creating Area Buttons Panel
+			JPanel ap=new JPanel();
+
+			//Creating From ->TextField, Combobox
+			String from[]={"Sq Meter","Sq Kilometer","Sq Centimeter","Sq Millimeter","Sq Centimeter","Acre","Hectare"};
+			ftf=new JTextField(6);
+			acb1=new JComboBox<>(from);
+
+			//Creating to ->TextField, Combobox
+			String to[]={"Sq Meter","Sq Kilometer","Sq Centimeter","Sq Millimeter","Sq Centimeter","Acre","Hectare"};
+			ttf=new JTextField(6);
+			ttf.setEditable(false);
+			acb2=new JComboBox<>(to);
+
+			//Creating Convert Button
+			conv=new JButton("Convert");
+
+			//Adding Color to Button
+			conv.setBackground(Color.green);
+
+			//Adding Action Listener to the Convert Button
+			conv.addActionListener(this);
+
+			//Adding layout to Panel
+			ap.setLayout(new GridLayout(3,2,5,5));
+
+			//Adding constraints(only number) to TextFields
+			ftf.addKeyListener(new KeyAdapter() {
+				public void keyPressed(KeyEvent ke) {
+				   String value = ftf.getText();
+				   int l = value.length();
+				   if (ke.getKeyChar() >= '0' && ke.getKeyChar() <= '9') {
+					  ftf.setEditable(true);
+				   } else {
+					  ftf.setEditable(false);
+				   }
+				}
+			 });
+			 /*ttf.addKeyListener(new KeyAdapter() {
+				public void keyPressed(KeyEvent ke) {
+				   String value = ttf.getText();
+				   int l = value.length();
+				   if (ke.getKeyChar() >= '0' && ke.getKeyChar() <= '9') {
+					  ttf.setEditable(true);
+				   } else {
+					  ttf.setEditable(false);
+				   }
+				}
+			 });*/
+
+			//Adding All to Panel
+			ap.add(ftf);
+			ap.add(acb1);
+			ap.add(ttf);
+			ap.add(acb2);
+			ap.add(conv);
+
+			//Adding pannel to Frame
+			add(ap);
+		}
+		//Action Listener
+		public void actionPerformed(ActionEvent e1)
+		{
+			String s=e1.getActionCommand();
+			int i = Integer.MIN_VALUE;
+			if (s.equals("Convert"))
+			{
+				System.out.println(s);
+				System.out.println(acb1.getSelectedItem());
+				System.out.println(acb2.getSelectedItem());
+				if((acb1.getSelectedItem()).equals("Sq Meter") && (acb2.getSelectedItem()).equals("Sq Kilometer"))
+				{
+					n=(Double.parseDouble(ftf.getText()) * 0.000001);
+					//NumberFormat nf = NumberFormat.getInstance();
+    				//nf.setMinimumFractionDigits(7);
+					//sa=String.valueOf(nf.format(n));
+					sa=String.valueOf(n);
+					ttf.setText(sa);
+				}
+				if((acb1.getSelectedItem()).equals("Sq Kilometer") && (acb2.getSelectedItem()).equals("Sq Meter"))
+				{
+					n=(Double.parseDouble(ftf.getText()) * 1000000);
+					sa=String.valueOf(n);
+					ttf.setText(sa);
+				}
+			}
 		}
 	}
-	class Volume extends JPanel
+	class Volume extends JPanel implements ActionListener
 	{
+		JTextField ftf,ttf;
+		JComboBox acb1,acb2;
+		JButton conv;
+		String sa;
+		double n;
 		Volume()
 		{
-			JButton b1,b2,b3;
-			b1=new JButton("America");
-			b2=new JButton("India");
-			b3=new JButton("Japan");
-			add(b1);
-			add(b2);
-			add(b3);
+			//Creating Area Buttons Panel
+			JPanel ap=new JPanel();
+
+			//Creating From ->TextField, Combobox
+			String from[]={"Sq Meter","Sq Kilometer","Sq Centimeter","Sq Millimeter","Sq Centimeter","Acre","Hectare"};
+			ftf=new JTextField(6);
+			acb1=new JComboBox<>(from);
+
+			//Creating to ->TextField, Combobox
+			String to[]={"Sq Meter","Sq Kilometer","Sq Centimeter","Sq Millimeter","Sq Centimeter","Acre","Hectare"};
+			ttf=new JTextField(6);
+			ttf.setEditable(false);
+			acb2=new JComboBox<>(to);
+
+			//Creating Convert Button
+			conv=new JButton("Convert");
+
+			//Adding Color to Button
+			conv.setBackground(Color.green);
+
+			//Adding Action Listener to the Convert Button
+			conv.addActionListener(this);
+
+			//Adding layout to Panel
+			ap.setLayout(new GridLayout(3,2,5,5));
+
+			//Adding constraints(only number) to TextFields
+			ftf.addKeyListener(new KeyAdapter() {
+				public void keyPressed(KeyEvent ke) {
+				   String value = ftf.getText();
+				   int l = value.length();
+				   if (ke.getKeyChar() >= '0' && ke.getKeyChar() <= '9') {
+					  ftf.setEditable(true);
+				   } else {
+					  ftf.setEditable(false);
+				   }
+				}
+			 });
+			 /*ttf.addKeyListener(new KeyAdapter() {
+				public void keyPressed(KeyEvent ke) {
+				   String value = ttf.getText();
+				   int l = value.length();
+				   if (ke.getKeyChar() >= '0' && ke.getKeyChar() <= '9') {
+					  ttf.setEditable(true);
+				   } else {
+					  ttf.setEditable(false);
+				   }
+				}
+			 });*/
+
+			//Adding All to Panel
+			ap.add(ftf);
+			ap.add(acb1);
+			ap.add(ttf);
+			ap.add(acb2);
+			ap.add(conv);
+
+			//Adding pannel to Frame
+			add(ap);
+		}
+		//Action Listener
+		public void actionPerformed(ActionEvent e1)
+		{
+			String s=e1.getActionCommand();
+			int i = Integer.MIN_VALUE;
+			if (s.equals("Convert"))
+			{
+				System.out.println(s);
+				System.out.println(acb1.getSelectedItem());
+				System.out.println(acb2.getSelectedItem());
+				if((acb1.getSelectedItem()).equals("Sq Meter") && (acb2.getSelectedItem()).equals("Sq Kilometer"))
+				{
+					n=(Double.parseDouble(ftf.getText()) * 0.000001);
+					//NumberFormat nf = NumberFormat.getInstance();
+    				//nf.setMinimumFractionDigits(7);
+					//sa=String.valueOf(nf.format(n));
+					sa=String.valueOf(n);
+					ttf.setText(sa);
+				}
+				if((acb1.getSelectedItem()).equals("Sq Kilometer") && (acb2.getSelectedItem()).equals("Sq Meter"))
+				{
+					n=(Double.parseDouble(ftf.getText()) * 1000000);
+					sa=String.valueOf(n);
+					ttf.setText(sa);
+				}
+			}
 		}
 	}
-	class Temperature extends JPanel
+	class Temperature extends JPanel implements ActionListener
 	{
+		JTextField ftf,ttf;
+		JComboBox acb1,acb2;
+		JButton conv;
+		String sa;
+		double n;
 		Temperature()
 		{
-			JButton b1,b2,b3;
-			b1=new JButton("America");
-			b2=new JButton("India");
-			b3=new JButton("Japan");
-			add(b1);
-			add(b2);
-			add(b3);
+			//Creating Area Buttons Panel
+			JPanel ap=new JPanel();
+
+			//Creating From ->TextField, Combobox
+			String from[]={"Sq Meter","Sq Kilometer","Sq Centimeter","Sq Millimeter","Sq Centimeter","Acre","Hectare"};
+			ftf=new JTextField(6);
+			acb1=new JComboBox<>(from);
+
+			//Creating to ->TextField, Combobox
+			String to[]={"Sq Meter","Sq Kilometer","Sq Centimeter","Sq Millimeter","Sq Centimeter","Acre","Hectare"};
+			ttf=new JTextField(6);
+			ttf.setEditable(false);
+			acb2=new JComboBox<>(to);
+
+			//Creating Convert Button
+			conv=new JButton("Convert");
+
+			//Adding Color to Button
+			conv.setBackground(Color.green);
+
+			//Adding Action Listener to the Convert Button
+			conv.addActionListener(this);
+
+			//Adding layout to Panel
+			ap.setLayout(new GridLayout(3,2,5,5));
+
+			//Adding constraints(only number) to TextFields
+			ftf.addKeyListener(new KeyAdapter() {
+				public void keyPressed(KeyEvent ke) {
+				   String value = ftf.getText();
+				   int l = value.length();
+				   if (ke.getKeyChar() >= '0' && ke.getKeyChar() <= '9') {
+					  ftf.setEditable(true);
+				   } else {
+					  ftf.setEditable(false);
+				   }
+				}
+			 });
+			 /*ttf.addKeyListener(new KeyAdapter() {
+				public void keyPressed(KeyEvent ke) {
+				   String value = ttf.getText();
+				   int l = value.length();
+				   if (ke.getKeyChar() >= '0' && ke.getKeyChar() <= '9') {
+					  ttf.setEditable(true);
+				   } else {
+					  ttf.setEditable(false);
+				   }
+				}
+			 });*/
+
+			//Adding All to Panel
+			ap.add(ftf);
+			ap.add(acb1);
+			ap.add(ttf);
+			ap.add(acb2);
+			ap.add(conv);
+
+			//Adding pannel to Frame
+			add(ap);
+		}
+		//Action Listener
+		public void actionPerformed(ActionEvent e1)
+		{
+			String s=e1.getActionCommand();
+			int i = Integer.MIN_VALUE;
+			if (s.equals("Convert"))
+			{
+				System.out.println(s);
+				System.out.println(acb1.getSelectedItem());
+				System.out.println(acb2.getSelectedItem());
+				if((acb1.getSelectedItem()).equals("Sq Meter") && (acb2.getSelectedItem()).equals("Sq Kilometer"))
+				{
+					n=(Double.parseDouble(ftf.getText()) * 0.000001);
+					//NumberFormat nf = NumberFormat.getInstance();
+    				//nf.setMinimumFractionDigits(7);
+					//sa=String.valueOf(nf.format(n));
+					sa=String.valueOf(n);
+					ttf.setText(sa);
+				}
+				if((acb1.getSelectedItem()).equals("Sq Kilometer") && (acb2.getSelectedItem()).equals("Sq Meter"))
+				{
+					n=(Double.parseDouble(ftf.getText()) * 1000000);
+					sa=String.valueOf(n);
+					ttf.setText(sa);
+				}
+			}
 		}
 	}
 }
