@@ -396,7 +396,7 @@ class UnitConverterTab extends JPanel
 		double n;
 		Area()
 		{
-			//Creating Area Buttons Panel
+			//Creating Buttons Panel
 			JPanel ap=new JPanel();
 
 			//Creating From ->TextField, Combobox
@@ -427,25 +427,13 @@ class UnitConverterTab extends JPanel
 				public void keyPressed(KeyEvent ke) {
 				   String value = ftf.getText();
 				   int l = value.length();
-				   if (ke.getKeyChar() >= '0' && ke.getKeyChar() <= '9') {
+				   if (ke.getKeyChar() >= '0' && ke.getKeyChar() <= '9' || ke.getKeyChar() == '.') {
 					  ftf.setEditable(true);
 				   } else {
 					  ftf.setEditable(false);
 				   }
 				}
 			 });
-			 /*ttf.addKeyListener(new KeyAdapter() {
-				public void keyPressed(KeyEvent ke) {
-				   String value = ttf.getText();
-				   int l = value.length();
-				   if (ke.getKeyChar() >= '0' && ke.getKeyChar() <= '9') {
-					  ttf.setEditable(true);
-				   } else {
-					  ttf.setEditable(false);
-				   }
-				}
-			 });*/
-
 			//Adding All to Panel
 			ap.add(ftf);
 			ap.add(acb1);
@@ -460,7 +448,6 @@ class UnitConverterTab extends JPanel
 		public void actionPerformed(ActionEvent e1)
 		{
 			String s=e1.getActionCommand();
-			int i = Integer.MIN_VALUE;
 			if (s.equals("Convert"))
 			{
 				System.out.println(s);
@@ -557,7 +544,7 @@ class UnitConverterTab extends JPanel
 		double n;
 		Mass()
 		{
-			//Creating Area Buttons Panel
+			//Creating Buttons Panel
 			JPanel ap=new JPanel();
 
 			//Creating From ->TextField, Combobox
@@ -588,24 +575,13 @@ class UnitConverterTab extends JPanel
 				public void keyPressed(KeyEvent ke) {
 				   String value = ftf.getText();
 				   int l = value.length();
-				   if (ke.getKeyChar() >= '0' && ke.getKeyChar() <= '9') {
+				   if (ke.getKeyChar() >= '0' && ke.getKeyChar() <= '9' || ke.getKeyChar() == '.') {
 					  ftf.setEditable(true);
 				   } else {
 					  ftf.setEditable(false);
 				   }
 				}
 			 });
-			 /*ttf.addKeyListener(new KeyAdapter() {
-				public void keyPressed(KeyEvent ke) {
-				   String value = ttf.getText();
-				   int l = value.length();
-				   if (ke.getKeyChar() >= '0' && ke.getKeyChar() <= '9') {
-					  ttf.setEditable(true);
-				   } else {
-					  ttf.setEditable(false);
-				   }
-				}
-			 });*/
 
 			//Adding All to Panel
 			ap.add(ftf);
@@ -621,7 +597,6 @@ class UnitConverterTab extends JPanel
 		public void actionPerformed(ActionEvent e1)
 		{
 			String s=e1.getActionCommand();
-			int i = Integer.MIN_VALUE;
 			if (s.equals("Convert"))
 			{
 				System.out.println(s);
@@ -759,7 +734,7 @@ class UnitConverterTab extends JPanel
 		double n;
 		Length()
 		{
-			//Creating Area Buttons Panel
+			//Creating Buttons Panel
 			JPanel ap=new JPanel();
 
 			//Creating From ->TextField, Combobox
@@ -790,24 +765,13 @@ class UnitConverterTab extends JPanel
 				public void keyPressed(KeyEvent ke) {
 				   String value = ftf.getText();
 				   int l = value.length();
-				   if (ke.getKeyChar() >= '0' && ke.getKeyChar() <= '9') {
+				   if (ke.getKeyChar() >= '0' && ke.getKeyChar() <= '9' || ke.getKeyChar() == '.') {
 					  ftf.setEditable(true);
 				   } else {
 					  ftf.setEditable(false);
 				   }
 				}
 			 });
-			 /*ttf.addKeyListener(new KeyAdapter() {
-				public void keyPressed(KeyEvent ke) {
-				   String value = ttf.getText();
-				   int l = value.length();
-				   if (ke.getKeyChar() >= '0' && ke.getKeyChar() <= '9') {
-					  ttf.setEditable(true);
-				   } else {
-					  ttf.setEditable(false);
-				   }
-				}
-			 });*/
 
 			//Adding All to Panel
 			ap.add(ftf);
@@ -823,7 +787,6 @@ class UnitConverterTab extends JPanel
 		public void actionPerformed(ActionEvent e1)
 		{
 			String s=e1.getActionCommand();
-			int i = Integer.MIN_VALUE;
 			if (s.equals("Convert"))
 			{
 				System.out.println(s);
@@ -1025,7 +988,7 @@ class UnitConverterTab extends JPanel
 		double n;
 		Speed()
 		{
-			//Creating Area Buttons Panel
+			//Creating Buttons Panel
 			JPanel ap=new JPanel();
 
 			//Creating From ->TextField, Combobox
@@ -1056,24 +1019,13 @@ class UnitConverterTab extends JPanel
 				public void keyPressed(KeyEvent ke) {
 				   String value = ftf.getText();
 				   int l = value.length();
-				   if (ke.getKeyChar() >= '0' && ke.getKeyChar() <= '9') {
+				   if (ke.getKeyChar() >= '0' && ke.getKeyChar() <= '9' || ke.getKeyChar() == '.') {
 					  ftf.setEditable(true);
 				   } else {
 					  ftf.setEditable(false);
 				   }
 				}
 			 });
-			 /*ttf.addKeyListener(new KeyAdapter() {
-				public void keyPressed(KeyEvent ke) {
-				   String value = ttf.getText();
-				   int l = value.length();
-				   if (ke.getKeyChar() >= '0' && ke.getKeyChar() <= '9') {
-					  ttf.setEditable(true);
-				   } else {
-					  ttf.setEditable(false);
-				   }
-				}
-			 });*/
 
 			//Adding All to Panel
 			ap.add(ftf);
@@ -1089,7 +1041,6 @@ class UnitConverterTab extends JPanel
 		public void actionPerformed(ActionEvent e1)
 		{
 			String s=e1.getActionCommand();
-			int i = Integer.MIN_VALUE;
 			if (s.equals("Convert"))
 			{
 				System.out.println(s);
@@ -1146,7 +1097,7 @@ class UnitConverterTab extends JPanel
 		double n;
 		Volume()
 		{
-			//Creating Area Buttons Panel
+			//Creating Buttons Panel
 			JPanel ap=new JPanel();
 
 			//Creating From ->TextField, Combobox
@@ -1177,24 +1128,13 @@ class UnitConverterTab extends JPanel
 				public void keyPressed(KeyEvent ke) {
 				   String value = ftf.getText();
 				   int l = value.length();
-				   if (ke.getKeyChar() >= '0' && ke.getKeyChar() <= '9') {
+				   if (ke.getKeyChar() >= '0' && ke.getKeyChar() <= '9' || ke.getKeyChar() == '.') {
 					  ftf.setEditable(true);
 				   } else {
 					  ftf.setEditable(false);
 				   }
 				}
 			 });
-			 /*ttf.addKeyListener(new KeyAdapter() {
-				public void keyPressed(KeyEvent ke) {
-				   String value = ttf.getText();
-				   int l = value.length();
-				   if (ke.getKeyChar() >= '0' && ke.getKeyChar() <= '9') {
-					  ttf.setEditable(true);
-				   } else {
-					  ttf.setEditable(false);
-				   }
-				}
-			 });*/
 
 			//Adding All to Panel
 			ap.add(ftf);
@@ -1210,7 +1150,6 @@ class UnitConverterTab extends JPanel
 		public void actionPerformed(ActionEvent e1)
 		{
 			String s=e1.getActionCommand();
-			int i = Integer.MIN_VALUE;
 			if (s.equals("Convert"))
 			{
 				System.out.println(s);
@@ -1268,7 +1207,7 @@ class UnitConverterTab extends JPanel
 		double n;
 		Temperature()
 		{
-			//Creating Area Buttons Panel
+			//Creating Buttons Panel
 			JPanel ap=new JPanel();
 
 			//Creating From ->TextField, Combobox
@@ -1298,26 +1237,14 @@ class UnitConverterTab extends JPanel
 			ftf.addKeyListener(new KeyAdapter() {
 				public void keyPressed(KeyEvent ke) {
 				   String value = ftf.getText();
-				   int l = value.length();
-				   if (ke.getKeyChar() >= '0' && ke.getKeyChar() <= '9') {
+				   if (ke.getKeyChar() >= '0' && ke.getKeyChar() <= '9' || ke.getKeyChar() == '.') {
 					  ftf.setEditable(true);
 				   } else {
 					  ftf.setEditable(false);
 				   }
 				}
 			 });
-			 /*ttf.addKeyListener(new KeyAdapter() {
-				public void keyPressed(KeyEvent ke) {
-				   String value = ttf.getText();
-				   int l = value.length();
-				   if (ke.getKeyChar() >= '0' && ke.getKeyChar() <= '9') {
-					  ttf.setEditable(true);
-				   } else {
-					  ttf.setEditable(false);
-				   }
-				}
-			 });*/
-
+			 
 			//Adding All to Panel
 			ap.add(ftf);
 			ap.add(acb1);
@@ -1427,7 +1354,7 @@ class MoreTab extends JPanel
 		JPanel mLabelPanel = new JPanel();
 
 		//Creating Unit Converter Label
-		JLabel m=new JLabel("Unit Converter");
+		JLabel m=new JLabel("More");
         m.setFont(new Font("Helvetica", Font.BOLD, 28));
 
 		//Applying Border Layout to Unit Converter Label Panel
@@ -1453,6 +1380,7 @@ class MoreTab extends JPanel
 		//Creating Tabs 
 		mtp.add("BMI",new BMI());
 		mtp.add("GST",new GST());
+		mtp.add("Split",new Split());
 		mtp.setFont(new Font("Helvetica", Font.BOLD, 12));
 
 		//Adding Tabs to Panel
@@ -1473,69 +1401,72 @@ class MoreTab extends JPanel
 	}
 	class BMI extends JPanel implements ActionListener
 	{
-		JTextField ftf,ttf;
-		JComboBox acb1,acb2;
-		JButton conv;
-		String sa;
-		double n;
+		JTextField ftf,ttf,res,res2;
+		JTextArea h,w;
+		JButton cal;
 		BMI()
 		{
-			//Creating Area Buttons Panel
+			//Creating Buttons Panel
 			JPanel ap=new JPanel();
 
-			//Creating From ->TextField, Combobox
-			String from[]={"Celsius","Fahrenheit","Kelvin","Rankine"};
+			//Creating From ->TextArea, TextField
+			h=new JTextArea("Height (cm)");
+			h.setFont(new Font("Helvetica", Font.BOLD, 12));
 			ftf=new JTextField(6);
-			acb1=new JComboBox<>(from);
 
-			//Creating to ->TextField, Combobox
-			String to[]={"Celsius","Fahrenheit","Kelvin","Rankine"};
+			//Creating to ->TextArea, TextField
+			w=new JTextArea("Weight (kg)");
+			w.setFont(new Font("Helvetica", Font.BOLD, 12));
 			ttf=new JTextField(6);
-			ttf.setEditable(false);
-			acb2=new JComboBox<>(to);
+			
+			//Creating Result TextField
+			res=new JTextField(6);
+			res.setEditable(false);
+			res2=new JTextField(6);
+			res2.setEditable(false);
 
-			//Creating Convert Button
-			conv=new JButton("Convert");
+			//Creating Calculate Button
+			cal=new JButton("Calculate");
 
 			//Adding Color to Button
-			conv.setBackground(Color.green);
+			cal.setBackground(Color.green);
 
 			//Adding Action Listener to the Convert Button
-			conv.addActionListener(this);
+			cal.addActionListener(this);
 
 			//Adding layout to Panel
-			ap.setLayout(new GridLayout(3,2,5,5));
+			ap.setLayout(new GridLayout(4,2,5,5));
 
 			//Adding constraints(only number) to TextFields
 			ftf.addKeyListener(new KeyAdapter() {
 				public void keyPressed(KeyEvent ke) {
 				   String value = ftf.getText();
-				   int l = value.length();
-				   if (ke.getKeyChar() >= '0' && ke.getKeyChar() <= '9') {
+				   if (ke.getKeyChar() >= '0' && ke.getKeyChar() <= '9' || ke.getKeyChar() == '.') {
 					  ftf.setEditable(true);
 				   } else {
 					  ftf.setEditable(false);
 				   }
 				}
 			 });
-			 /*ttf.addKeyListener(new KeyAdapter() {
+			 ttf.addKeyListener(new KeyAdapter() {
 				public void keyPressed(KeyEvent ke) {
 				   String value = ttf.getText();
-				   int l = value.length();
-				   if (ke.getKeyChar() >= '0' && ke.getKeyChar() <= '9') {
+				   if (ke.getKeyChar() >= '0' && ke.getKeyChar() <= '9' || ke.getKeyChar() == '.') {
 					  ttf.setEditable(true);
 				   } else {
 					  ttf.setEditable(false);
 				   }
 				}
-			 });*/
+			 });
 
 			//Adding All to Panel
+			ap.add(h);
 			ap.add(ftf);
-			ap.add(acb1);
+			ap.add(w);
 			ap.add(ttf);
-			ap.add(acb2);
-			ap.add(conv);
+			ap.add(res);
+			ap.add(res2);
+			ap.add(cal);
 
 			//Adding pannel to Frame
 			add(ap);
@@ -1544,58 +1475,161 @@ class MoreTab extends JPanel
 		public void actionPerformed(ActionEvent e1)
 		{
 			String s=e1.getActionCommand();
-			int i = Integer.MIN_VALUE;
-			if (s.equals("Convert"))
+			double he=(Double.parseDouble(ftf.getText()));
+			double we=(Double.parseDouble(ttf.getText()));
+			if (s.equals("Calculate"))
 			{
 				System.out.println(s);
-				System.out.println(acb1.getSelectedItem());
-				System.out.println(acb2.getSelectedItem());
-				if((acb1.getSelectedItem()).equals("Sq Meter") && (acb2.getSelectedItem()).equals("Sq Kilometer"))
+				System.out.println(h.getText());
+				System.out.println(w.getText());
+				double r=(we/((he/100)*(he/100)));
+				System.out.println("Result="+r);
+				if(r<18.5)
 				{
-					n=(Double.parseDouble(ftf.getText()) * 0.000001);
-					sa=String.valueOf(n);
-					ttf.setText(sa);
+					res.setText("BMI: "+String.format("%.2f",r));
+					res2.setText("Underweight");
 				}
-				if((acb1.getSelectedItem()).equals("Sq Kilometer") && (acb2.getSelectedItem()).equals("Sq Meter"))
+				else if(r>18.5 && r<24.9)
 				{
-					n=(Double.parseDouble(ftf.getText()) * 1000000);
-					sa=String.valueOf(n);
-					ttf.setText(sa);
+					res.setText("BMI: "+String.format("%.2f",r));
+					res2.setText("Normal Weight");
+				}
+				else if(r>24.9 && r<29.9)
+				{
+					res.setText("BMI: "+String.format("%.2f",r));
+					res2.setText("Overweight");
+				}
+				else if(r>30)
+				{
+					res.setText("BMI: "+String.format("%.2f",r));
+					res2.setText("Obesity");
 				}
 			}
 		}
 	}
 	class GST extends JPanel implements ActionListener
 	{
-		JTextField ftf,ttf;
-		JComboBox acb1,acb2;
-		JButton conv;
-		String sa;
-		double n;
+		JTextField ftf,ttf,res,res2;
+		JTextArea p,t;
+		JButton cal;
 		GST()
 		{
-			//Creating Area Buttons Panel
+			//Creating Buttons Panel
 			JPanel ap=new JPanel();
 
-			//Creating From ->TextField, Combobox
-			String from[]={"Celsius","Fahrenheit","Kelvin","Rankine"};
+			//Creating From ->TextArea, TextField
+			p=new JTextArea("Price");
+			p.setFont(new Font("Helvetica", Font.BOLD, 12));
 			ftf=new JTextField(6);
-			acb1=new JComboBox<>(from);
 
-			//Creating to ->TextField, Combobox
-			String to[]={"Celsius","Fahrenheit","Kelvin","Rankine"};
+			//Creating to ->TextArea, TextField
+			t=new JTextArea("GST (%)");
+			t.setFont(new Font("Helvetica", Font.BOLD, 12));
 			ttf=new JTextField(6);
-			ttf.setEditable(false);
-			acb2=new JComboBox<>(to);
+			
+			//Creating Result TextField
+			res=new JTextField(6);
+			res.setEditable(false);
+			res2=new JTextField(6);
+			res2.setEditable(false);
 
-			//Creating Convert Button
-			conv=new JButton("Convert");
+			//Creating Calculate Button
+			cal=new JButton("Calculate");
 
 			//Adding Color to Button
-			conv.setBackground(Color.green);
+			cal.setBackground(Color.green);
 
 			//Adding Action Listener to the Convert Button
-			conv.addActionListener(this);
+			cal.addActionListener(this);
+
+			//Adding layout to Panel
+			ap.setLayout(new GridLayout(4,2,5,5));
+
+			//Adding constraints(only number) to TextFields
+			ftf.addKeyListener(new KeyAdapter() {
+				public void keyPressed(KeyEvent ke) {
+				   String value = ftf.getText();
+				   int l = value.length();
+				   if (ke.getKeyChar() >= '0' && ke.getKeyChar() <= '9' || ke.getKeyChar() == '.') {
+					  ftf.setEditable(true);
+				   } else {
+					  ftf.setEditable(false);
+				   }
+				}
+			 });
+			 ttf.addKeyListener(new KeyAdapter() {
+				public void keyPressed(KeyEvent ke) {
+				   String value = ttf.getText();
+				   int l = value.length();
+				   if (ke.getKeyChar() >= '0' && ke.getKeyChar() <= '9' || ke.getKeyChar() == '.') {
+					  ttf.setEditable(true);
+				   } else {
+					  ttf.setEditable(false);
+				   }
+				}
+			 });
+
+			//Adding All to Panel
+			ap.add(p);
+			ap.add(ftf);
+			ap.add(t);
+			ap.add(ttf);
+			ap.add(res);
+			ap.add(res2);
+			ap.add(cal);
+
+			//Adding pannel to Frame
+			add(ap);
+		}
+		//Action Listener
+		public void actionPerformed(ActionEvent e1)
+		{
+			String s=e1.getActionCommand();
+			double pr=(Double.parseDouble(ftf.getText()));
+			double tx=(Double.parseDouble(ttf.getText()));
+			if (s.equals("Calculate"))
+			{
+				double ta=(pr*(tx/100));
+				double to=(pr+ta);
+				System.out.println("tax="+ta);
+				System.out.println("total="+to);
+				res.setText("GSt="+ta);
+				res2.setText("Total="+to);
+			}
+		}
+	}
+	class Split extends JPanel implements ActionListener
+	{
+		JTextField ftf,ttf,res,res2;
+		JTextArea p,t;
+		JButton cal;
+		Split()
+		{
+			//Creating Buttons Panel
+			JPanel ap=new JPanel();
+
+			//Creating From ->TextArea, TextField
+			p=new JTextArea("Price");
+			p.setFont(new Font("Helvetica", Font.BOLD, 12));
+			ftf=new JTextField(6);
+
+			//Creating to ->TextArea, TextField
+			t=new JTextArea("Persons");
+			t.setFont(new Font("Helvetica", Font.BOLD, 12));
+			ttf=new JTextField(6);
+			
+			//Creating Result TextField
+			res=new JTextField(6);
+			res.setEditable(false);
+
+			//Creating Calculate Button
+			cal=new JButton("Calculate");
+
+			//Adding Color to Button
+			cal.setBackground(Color.green);
+
+			//Adding Action Listener to the Convert Button
+			cal.addActionListener(this);
 
 			//Adding layout to Panel
 			ap.setLayout(new GridLayout(3,2,5,5));
@@ -1605,14 +1639,14 @@ class MoreTab extends JPanel
 				public void keyPressed(KeyEvent ke) {
 				   String value = ftf.getText();
 				   int l = value.length();
-				   if (ke.getKeyChar() >= '0' && ke.getKeyChar() <= '9') {
+				   if (ke.getKeyChar() >= '0' && ke.getKeyChar() <= '9' || ke.getKeyChar() == '.') {
 					  ftf.setEditable(true);
 				   } else {
 					  ftf.setEditable(false);
 				   }
 				}
 			 });
-			 /*ttf.addKeyListener(new KeyAdapter() {
+			 ttf.addKeyListener(new KeyAdapter() {
 				public void keyPressed(KeyEvent ke) {
 				   String value = ttf.getText();
 				   int l = value.length();
@@ -1622,14 +1656,15 @@ class MoreTab extends JPanel
 					  ttf.setEditable(false);
 				   }
 				}
-			 });*/
+			 });
 
 			//Adding All to Panel
+			ap.add(p);
 			ap.add(ftf);
-			ap.add(acb1);
+			ap.add(t);
 			ap.add(ttf);
-			ap.add(acb2);
-			ap.add(conv);
+			ap.add(cal);
+			ap.add(res);
 
 			//Adding pannel to Frame
 			add(ap);
@@ -1638,24 +1673,12 @@ class MoreTab extends JPanel
 		public void actionPerformed(ActionEvent e1)
 		{
 			String s=e1.getActionCommand();
-			int i = Integer.MIN_VALUE;
-			if (s.equals("Convert"))
+			double pr=(Double.parseDouble(ftf.getText()));
+			double tx=(Double.parseDouble(ttf.getText()));
+			if (s.equals("Calculate"))
 			{
-				System.out.println(s);
-				System.out.println(acb1.getSelectedItem());
-				System.out.println(acb2.getSelectedItem());
-				if((acb1.getSelectedItem()).equals("Sq Meter") && (acb2.getSelectedItem()).equals("Sq Kilometer"))
-				{
-					n=(Double.parseDouble(ftf.getText()) * 0.000001);
-					sa=String.valueOf(n);
-					ttf.setText(sa);
-				}
-				if((acb1.getSelectedItem()).equals("Sq Kilometer") && (acb2.getSelectedItem()).equals("Sq Meter"))
-				{
-					n=(Double.parseDouble(ftf.getText()) * 1000000);
-					sa=String.valueOf(n);
-					ttf.setText(sa);
-				}
+				double ta=(pr/tx);
+				res.setText("Split:"+String.format("%.2f",ta));
 			}
 		}
 	}
