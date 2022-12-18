@@ -1,10 +1,8 @@
 //Importing Libraries
 import java.awt.*;
-import java.math.*;
-import java.text.*;
 import javax.swing.*;
-import javax.swing.event.*;
 import java.awt.event.*;
+//import java.time.format.FormatStyle;
 
 //Creating Class
 class CFrame extends JFrame
@@ -1413,11 +1411,13 @@ class MoreTab extends JPanel
 			h=new JTextArea("Height (cm)");
 			h.setFont(new Font("Helvetica", Font.BOLD, 12));
 			ftf=new JTextField(6);
+			h.setEditable(false);
 
 			//Creating to ->TextArea, TextField
 			w=new JTextArea("Weight (kg)");
 			w.setFont(new Font("Helvetica", Font.BOLD, 12));
 			ttf=new JTextField(6);
+			w.setEditable(false);
 			
 			//Creating Result TextField
 			res=new JTextField(6);
@@ -1521,11 +1521,13 @@ class MoreTab extends JPanel
 			p=new JTextArea("Price");
 			p.setFont(new Font("Helvetica", Font.BOLD, 12));
 			ftf=new JTextField(6);
+			p.setEditable(false);
 
 			//Creating to ->TextArea, TextField
 			t=new JTextArea("GST (%)");
 			t.setFont(new Font("Helvetica", Font.BOLD, 12));
 			ttf=new JTextField(6);
+			t.setEditable(false);
 			
 			//Creating Result TextField
 			res=new JTextField(6);
@@ -1612,11 +1614,13 @@ class MoreTab extends JPanel
 			p=new JTextArea("Price");
 			p.setFont(new Font("Helvetica", Font.BOLD, 12));
 			ftf=new JTextField(6);
+			p.setEditable(false);
 
 			//Creating to ->TextArea, TextField
 			t=new JTextArea("Persons");
 			t.setFont(new Font("Helvetica", Font.BOLD, 12));
 			ttf=new JTextField(6);
+			t.setEditable(false);
 			
 			//Creating Result TextField
 			res=new JTextField(6);
@@ -1678,7 +1682,7 @@ class MoreTab extends JPanel
 			if (s.equals("Calculate"))
 			{
 				double ta=(pr/tx);
-				res.setText("Split:"+String.format("%.2f",ta));
+				res.setText("Split: "+String.format("%.2f",ta));
 			}
 		}
 	}
