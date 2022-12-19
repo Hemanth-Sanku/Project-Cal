@@ -453,7 +453,7 @@ class UnitConverterTab extends JPanel
 				System.out.println(acb2.getSelectedItem());
 				if((acb1.getSelectedItem()).equals("Sq Meter") && (acb2.getSelectedItem()).equals("Sq Kilometer"))
 				{
-					n=(Double.parseDouble(ftf.getText()) * 0.000001);
+					n=(Double.parseDouble(ftf.getText()) / 1e+6);
 					//NumberFormat nf = NumberFormat.getInstance();
     				//nf.setMinimumFractionDigits(7);
 					//sa=String.valueOf(nf.format(n));
