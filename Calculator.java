@@ -871,7 +871,7 @@ class UnitConverterTab extends JPanel
 				else if((acb1.getSelectedItem()).equals("Centimeter") && (acb2.getSelectedItem()).equals("Foot"))
 				{
 					n=(Double.parseDouble(ftf.getText()) / 30.48);
-					sa=String.valueOf(n);
+					sa=String.valueOf(String.format("%.2f",n));
 					ttf.setText(sa);
 				}
 				else if((acb1.getSelectedItem()).equals("Centimeter") && (acb2.getSelectedItem()).equals("Inch"))
