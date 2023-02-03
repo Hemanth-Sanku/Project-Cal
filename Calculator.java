@@ -403,7 +403,7 @@ class UnitConverterTab extends JPanel
 			acb1=new JComboBox<>(from);
 
 			//Creating to ->TextField, Combobox
-			String to[]={"Sq Meter","Sq Kilometer","Sq Centimeter","Sq Millimeter"};
+			String to[]={"Sq Kilometer","Sq Meter","Sq Centimeter","Sq Millimeter"};
 			ttf=new JTextField(6);
 			ttf.setEditable(false);
 			acb2=new JComboBox<>(to);
@@ -454,76 +454,73 @@ class UnitConverterTab extends JPanel
 				if((acb1.getSelectedItem()).equals("Sq Meter") && (acb2.getSelectedItem()).equals("Sq Kilometer"))
 				{
 					n=(Double.parseDouble(ftf.getText()) / 1e+6);
-					//NumberFormat nf = NumberFormat.getInstance();
-    				//nf.setMinimumFractionDigits(7);
-					//sa=String.valueOf(nf.format(n));
-					sa=String.valueOf(n);
+					sa=String.valueOf(String.format("%.2f",n));
 					ttf.setText(sa);
 				}
 				else if((acb1.getSelectedItem()).equals("Sq Meter") && (acb2.getSelectedItem()).equals("Sq Centimeter"))
 				{
 					n=(Double.parseDouble(ftf.getText()) * 10000);
-					sa=String.valueOf(n);
+					sa=String.valueOf(String.format("%.2f",n));
 					ttf.setText(sa);
 				}
 				else if((acb1.getSelectedItem()).equals("Sq Meter") && (acb2.getSelectedItem()).equals("Sq Millimeter"))
 				{
 					n=(Double.parseDouble(ftf.getText()) * 1e+6);
-					sa=String.valueOf(n);
+					sa=String.valueOf(String.format("%.2f",n));
 					ttf.setText(sa);
 				}
 				else if((acb1.getSelectedItem()).equals("Sq Kilometer") && (acb2.getSelectedItem()).equals("Sq Meter"))
 				{
 					n=(Double.parseDouble(ftf.getText()) * 1e+6);
-					sa=String.valueOf(n);
+					sa=String.valueOf(String.format("%.2f",n));
 					ttf.setText(sa);
 				}
 				else if((acb1.getSelectedItem()).equals("Sq Kilometer") && (acb2.getSelectedItem()).equals("Sq Centimeter"))
 				{
 					n=(Double.parseDouble(ftf.getText()) * 1e+10);
-					sa=String.valueOf(n);
+					sa=String.valueOf(String.format("%.2f",n));
 					ttf.setText(sa);
 				}
 				else if((acb1.getSelectedItem()).equals("Sq Kilometer") && (acb2.getSelectedItem()).equals("Sq Millimeter"))
 				{
 					n=(Double.parseDouble(ftf.getText()) * 1e+12);
-					sa=String.valueOf(n);
+					sa=String.valueOf(String.format("%.2f",n));
 					ttf.setText(sa);
 				}
 				else if((acb1.getSelectedItem()).equals("Sq Centimeter") && (acb2.getSelectedItem()).equals("Sq Meter"))
 				{
 					n=(Double.parseDouble(ftf.getText()) / 10000);
-					sa=String.valueOf(n);
+					sa=String.valueOf(String.format("%.2f",n));
 					ttf.setText(sa);
 				}
 				else if((acb1.getSelectedItem()).equals("Sq Centimeter") && (acb2.getSelectedItem()).equals("Sq Kilometer"))
 				{
 					n=(Double.parseDouble(ftf.getText()) / 1e+10);
-					sa=String.valueOf(n);
+					sa=String.valueOf(String.format("%.2f",n));
 					ttf.setText(sa);
 				}
 				else if((acb1.getSelectedItem()).equals("Sq Centimeter") && (acb2.getSelectedItem()).equals("Sq Millimeter"))
 				{
 					n=(Double.parseDouble(ftf.getText()) * 100);
-					sa=String.valueOf(n);
+					sa=String.valueOf(String.format("%.2f",n));
 					ttf.setText(sa);
 				}
 				else if((acb1.getSelectedItem()).equals("Sq Millimeter") && (acb2.getSelectedItem()).equals("Sq Meter"))
 				{
 					n=(Double.parseDouble(ftf.getText()) / 1e+6);
-					sa=String.valueOf(n);
+					sa=String.valueOf(String.format("%.2f",n));
 					ttf.setText(sa);
 				}
 				else if((acb1.getSelectedItem()).equals("Sq Millimeter") && (acb2.getSelectedItem()).equals("Sq Kilometer"))
 				{
 					n=(Double.parseDouble(ftf.getText()) / 1e+12);
-					sa=String.valueOf(n);
+					sa=String.valueOf(String.format("%.2f",n));
 					ttf.setText(sa);
 				}
 				else if((acb1.getSelectedItem()).equals("Sq Millimeter") && (acb2.getSelectedItem()).equals("Sq Centimeter"))
 				{
 					n=(Double.parseDouble(ftf.getText()) / 100);
-					sa=String.valueOf(n);
+					sa=String.valueOf(String.format("%.2f",n));
 					ttf.setText(sa);
 				}
 				else
@@ -551,7 +548,7 @@ class UnitConverterTab extends JPanel
 			acb1=new JComboBox<>(from);
 
 			//Creating to ->TextField, Combobox
-			String to[]={"Kilogram","Gram","Pound-lb","Millogram","Tonne"};
+			String to[]={"Gram","Kilogram","Pound-lb","Millogram","Tonne"};
 			ttf=new JTextField(6);
 			ttf.setEditable(false);
 			acb2=new JComboBox<>(to);
@@ -603,31 +600,31 @@ class UnitConverterTab extends JPanel
 				if((acb1.getSelectedItem()).equals("Kilogram") && (acb2.getSelectedItem()).equals("Gram"))
 				{
 					n=(Double.parseDouble(ftf.getText()) * 1000);
-					sa=String.valueOf(n);
+					sa=String.valueOf(String.format("%.2f",n));
 					ttf.setText(sa);
 				}
 				else if((acb1.getSelectedItem()).equals("Kilogram") && (acb2.getSelectedItem()).equals("Pound-lb"))
 				{
 					n=(Double.parseDouble(ftf.getText()) * 2.205);
-					sa=String.valueOf(n);
+					sa=String.valueOf(String.format("%.2f",n));
 					ttf.setText(sa);
 				}
 				else if((acb1.getSelectedItem()).equals("Kilogram") && (acb2.getSelectedItem()).equals("Milligram"))
 				{
 					n=(Double.parseDouble(ftf.getText()) * 1e+6);
-					sa=String.valueOf(n);
+					sa=String.valueOf(String.format("%.2f",n));
 					ttf.setText(sa);
 				}
 				else if((acb1.getSelectedItem()).equals("Kilogram") && (acb2.getSelectedItem()).equals("Tonne"))
 				{
 					n=(Double.parseDouble(ftf.getText()) / 1000);
-					sa=String.valueOf(n);
+					sa=String.valueOf(String.format("%.2f",n));
 					ttf.setText(sa);
 				}
 				else if((acb1.getSelectedItem()).equals("Gram") && (acb2.getSelectedItem()).equals("Kilogram"))
 				{
 					n=(Double.parseDouble(ftf.getText()) / 1000);
-					sa=String.valueOf(n);
+					sa=String.valueOf(String.format("%.2f",n));
 					ttf.setText(sa);
 				}
 				else if((acb1.getSelectedItem()).equals("Gram") && (acb2.getSelectedItem()).equals("Pound-lb"))
@@ -639,85 +636,85 @@ class UnitConverterTab extends JPanel
 				else if((acb1.getSelectedItem()).equals("Gram") && (acb2.getSelectedItem()).equals("Milligram"))
 				{
 					n=(Double.parseDouble(ftf.getText()) * 1000);
-					sa=String.valueOf(n);
+					sa=String.valueOf(String.format("%.2f",n));
 					ttf.setText(sa);
 				}
 				else if((acb1.getSelectedItem()).equals("Gram") && (acb2.getSelectedItem()).equals("Tonne"))
 				{
 					n=(Double.parseDouble(ftf.getText()) / 1e+6);
-					sa=String.valueOf(n);
+					sa=String.valueOf(String.format("%.2f",n));
 					ttf.setText(sa);
 				}
 				else if((acb1.getSelectedItem()).equals("Pound-lb") && (acb2.getSelectedItem()).equals("Kilogram"))
 				{
 					n=(Double.parseDouble(ftf.getText()) / 2.205);
-					sa=String.valueOf(n);
+					sa=String.valueOf(String.format("%.2f",n));
 					ttf.setText(sa);
 				}
 				else if((acb1.getSelectedItem()).equals("Pound-lb") && (acb2.getSelectedItem()).equals("Gram"))
 				{
 					n=(Double.parseDouble(ftf.getText()) * 453.6);
-					sa=String.valueOf(n);
+					sa=String.valueOf(String.format("%.2f",n));
 					ttf.setText(sa);
 				}
 				else if((acb1.getSelectedItem()).equals("Pound-lb") && (acb2.getSelectedItem()).equals("Milligram"))
 				{
 					n=(Double.parseDouble(ftf.getText()) * 453600);
-					sa=String.valueOf(n);
+					sa=String.valueOf(String.format("%.2f",n));
 					ttf.setText(sa);
 				}
 				else if((acb1.getSelectedItem()).equals("Pound-lb") && (acb2.getSelectedItem()).equals("Tonne"))
 				{
 					n=(Double.parseDouble(ftf.getText()) / 2205);
-					sa=String.valueOf(n);
+					sa=String.valueOf(String.format("%.2f",n));
 					ttf.setText(sa);
 				}
 				else if((acb1.getSelectedItem()).equals("Milligram") && (acb2.getSelectedItem()).equals("Kilogram"))
 				{
 					n=(Double.parseDouble(ftf.getText()) / 1e+6);
-					sa=String.valueOf(n);
+					sa=String.valueOf(String.format("%.2f",n));
 					ttf.setText(sa);
 				}
 				else if((acb1.getSelectedItem()).equals("Milligram") && (acb2.getSelectedItem()).equals("Gram"))
 				{
 					n=(Double.parseDouble(ftf.getText()) / 1000);
-					sa=String.valueOf(n);
+					sa=String.valueOf(String.format("%.2f",n));
 					ttf.setText(sa);
 				}
 				else if((acb1.getSelectedItem()).equals("Milligram") && (acb2.getSelectedItem()).equals("Pound-lb"))
 				{
 					n=(Double.parseDouble(ftf.getText()) / 453600);
-					sa=String.valueOf(n);
+					sa=String.valueOf(String.format("%.2f",n));
 					ttf.setText(sa);
 				}
 				else if((acb1.getSelectedItem()).equals("Milligram") && (acb2.getSelectedItem()).equals("Tonne"))
 				{
 					n=(Double.parseDouble(ftf.getText()) / 1e+9);
-					sa=String.valueOf(n);
+					sa=String.valueOf(String.format("%.2f",n));
 					ttf.setText(sa);
 				}
 				else if((acb1.getSelectedItem()).equals("Tonne") && (acb2.getSelectedItem()).equals("Kilogram"))
 				{
 					n=(Double.parseDouble(ftf.getText()) * 1000);
-					sa=String.valueOf(n);
+					sa=String.valueOf(String.format("%.2f",n));
 					ttf.setText(sa);
 				}
 				else if((acb1.getSelectedItem()).equals("Tonne") && (acb2.getSelectedItem()).equals("Gram"))
 				{
 					n=(Double.parseDouble(ftf.getText()) * 1e+6);
-					sa=String.valueOf(n);
+					sa=String.valueOf(String.format("%.2f",n));
 					ttf.setText(sa);
 				}
 				else if((acb1.getSelectedItem()).equals("Tonne") && (acb2.getSelectedItem()).equals("Pound-lb"))
 				{
 					n=(Double.parseDouble(ftf.getText()) * 2205);
-					sa=String.valueOf(n);
+					sa=String.valueOf(String.format("%.2f",n));
 					ttf.setText(sa);
 				}
 				else if((acb1.getSelectedItem()).equals("Tonne") && (acb2.getSelectedItem()).equals("Milligram"))
 				{
 					n=(Double.parseDouble(ftf.getText()) * 1e+9);
-					sa=String.valueOf(n);
+					sa=String.valueOf(String.format("%.2f",n));
 					ttf.setText(sa);
 				}
 			}
@@ -741,7 +738,7 @@ class UnitConverterTab extends JPanel
 			acb1=new JComboBox<>(from);
 
 			//Creating to ->TextField, Combobox
-			String to[]={"Kilometer","Meter","Centimeter","Mile","Foot","Inch"};
+			String to[]={"Meter","Kilometer","Centimeter","Mile","Foot","Inch"};
 			ttf=new JTextField(6);
 			ttf.setEditable(false);
 			acb2=new JComboBox<>(to);
@@ -793,79 +790,79 @@ class UnitConverterTab extends JPanel
 				if((acb1.getSelectedItem()).equals("Kilometer") && (acb2.getSelectedItem()).equals("Meter"))
 				{
 					n=(Double.parseDouble(ftf.getText()) * 1000);
-					sa=String.valueOf(n);
+					sa=String.valueOf(String.format("%.2f",n));
 					ttf.setText(sa);
 				}
 				else if((acb1.getSelectedItem()).equals("Kilometer") && (acb2.getSelectedItem()).equals("Centimeter"))
 				{
 					n=(Double.parseDouble(ftf.getText()) * 100000);
-					sa=String.valueOf(n);
+					sa=String.valueOf(String.format("%.2f",n));
 					ttf.setText(sa);
 				}
 				else if((acb1.getSelectedItem()).equals("Kilometer") && (acb2.getSelectedItem()).equals("Mile"))
 				{
 					n=(Double.parseDouble(ftf.getText()) / 1.609);
-					sa=String.valueOf(n);
+					sa=String.valueOf(String.format("%.2f",n));
 					ttf.setText(sa);
 				}
 				else if((acb1.getSelectedItem()).equals("Kilometer") && (acb2.getSelectedItem()).equals("Foot"))
 				{
 					n=(Double.parseDouble(ftf.getText()) * 3281);
-					sa=String.valueOf(n);
+					sa=String.valueOf(String.format("%.2f",n));
 					ttf.setText(sa);
 				}
 				else if((acb1.getSelectedItem()).equals("Kilometer") && (acb2.getSelectedItem()).equals("Inch"))
 				{
 					n=(Double.parseDouble(ftf.getText()) * 39370);
-					sa=String.valueOf(n);
+					sa=String.valueOf(String.format("%.2f",n));
 					ttf.setText(sa);
 				}
 				else if((acb1.getSelectedItem()).equals("Meter") && (acb2.getSelectedItem()).equals("Kilometer"))
 				{
 					n=(Double.parseDouble(ftf.getText()) / 1000);
-					sa=String.valueOf(n);
+					sa=String.valueOf(String.format("%.2f",n));
 					ttf.setText(sa);
 				}
 				else if((acb1.getSelectedItem()).equals("Meter") && (acb2.getSelectedItem()).equals("Centimeter"))
 				{
 					n=(Double.parseDouble(ftf.getText()) * 100);
-					sa=String.valueOf(n);
+					sa=String.valueOf(String.format("%.2f",n));
 					ttf.setText(sa);
 				}
 				else if((acb1.getSelectedItem()).equals("Meter") && (acb2.getSelectedItem()).equals("Mile"))
 				{
 					n=(Double.parseDouble(ftf.getText()) / 1609);
-					sa=String.valueOf(n);
+					sa=String.valueOf(String.format("%.2f",n));
 					ttf.setText(sa);
 				}
 				else if((acb1.getSelectedItem()).equals("Meter") && (acb2.getSelectedItem()).equals("Foot"))
 				{
 					n=(Double.parseDouble(ftf.getText()) * 3.281);
-					sa=String.valueOf(n);
+					sa=String.valueOf(String.format("%.2f",n));
 					ttf.setText(sa);
 				}
 				else if((acb1.getSelectedItem()).equals("Meter") && (acb2.getSelectedItem()).equals("Inch"))
 				{
 					n=(Double.parseDouble(ftf.getText()) * 39.37);
-					sa=String.valueOf(n);
+					sa=String.valueOf(String.format("%.2f",n));
 					ttf.setText(sa);
 				}
 				else if((acb1.getSelectedItem()).equals("Centimeter") && (acb2.getSelectedItem()).equals("Kilometer"))
 				{
 					n=(Double.parseDouble(ftf.getText()) / 100000);
-					sa=String.valueOf(n);
+					sa=String.valueOf(String.format("%.2f",n));
 					ttf.setText(sa);
 				}
 				else if((acb1.getSelectedItem()).equals("Centimeter") && (acb2.getSelectedItem()).equals("Meter"))
 				{
 					n=(Double.parseDouble(ftf.getText()) / 100);
-					sa=String.valueOf(n);
+					sa=String.valueOf(String.format("%.2f",n));
 					ttf.setText(sa);
 				}
 				else if((acb1.getSelectedItem()).equals("Centimeter") && (acb2.getSelectedItem()).equals("Mile"))
 				{
 					n=(Double.parseDouble(ftf.getText()) / 160900);
-					sa=String.valueOf(n);
+					sa=String.valueOf(String.format("%.2f",n));
 					ttf.setText(sa);
 				}
 				else if((acb1.getSelectedItem()).equals("Centimeter") && (acb2.getSelectedItem()).equals("Foot"))
@@ -877,97 +874,97 @@ class UnitConverterTab extends JPanel
 				else if((acb1.getSelectedItem()).equals("Centimeter") && (acb2.getSelectedItem()).equals("Inch"))
 				{
 					n=(Double.parseDouble(ftf.getText()) / 2.54);
-					sa=String.valueOf(n);
+					sa=String.valueOf(String.format("%.2f",n));
 					ttf.setText(sa);
 				}
 				else if((acb1.getSelectedItem()).equals("Mile") && (acb2.getSelectedItem()).equals("Kilometer"))
 				{
 					n=(Double.parseDouble(ftf.getText()) * 1.609);
-					sa=String.valueOf(n);
+					sa=String.valueOf(String.format("%.2f",n));
 					ttf.setText(sa);
 				}
 				else if((acb1.getSelectedItem()).equals("Mile") && (acb2.getSelectedItem()).equals("Meter"))
 				{
 					n=(Double.parseDouble(ftf.getText()) * 1609);
-					sa=String.valueOf(n);
+					sa=String.valueOf(String.format("%.2f",n));
 					ttf.setText(sa);
 				}
 				else if((acb1.getSelectedItem()).equals("Mile") && (acb2.getSelectedItem()).equals("Centimeter"))
 				{
 					n=(Double.parseDouble(ftf.getText()) * 160900);
-					sa=String.valueOf(n);
+					sa=String.valueOf(String.format("%.2f",n));
 					ttf.setText(sa);
 				}
 				else if((acb1.getSelectedItem()).equals("Mile") && (acb2.getSelectedItem()).equals("Foot"))
 				{
 					n=(Double.parseDouble(ftf.getText()) * 5280);
-					sa=String.valueOf(n);
+					sa=String.valueOf(String.format("%.2f",n));
 					ttf.setText(sa);
 				}
 				else if((acb1.getSelectedItem()).equals("Mile") && (acb2.getSelectedItem()).equals("Inch"))
 				{
 					n=(Double.parseDouble(ftf.getText()) * 63360);
-					sa=String.valueOf(n);
+					sa=String.valueOf(String.format("%.2f",n));
 					ttf.setText(sa);
 				}
 				else if((acb1.getSelectedItem()).equals("Foot") && (acb2.getSelectedItem()).equals("Kilometer"))
 				{
 					n=(Double.parseDouble(ftf.getText()) / 3281);
-					sa=String.valueOf(n);
+					sa=String.valueOf(String.format("%.2f",n));
 					ttf.setText(sa);
 				}
 				else if((acb1.getSelectedItem()).equals("Foot") && (acb2.getSelectedItem()).equals("Meter"))
 				{
 					n=(Double.parseDouble(ftf.getText()) / 3.281);
-					sa=String.valueOf(n);
+					sa=String.valueOf(String.format("%.2f",n));
 					ttf.setText(sa);
 				}
 				else if((acb1.getSelectedItem()).equals("Foot") && (acb2.getSelectedItem()).equals("Centimeter"))
 				{
 					n=(Double.parseDouble(ftf.getText()) * 30.48);
-					sa=String.valueOf(n);
+					sa=String.valueOf(String.format("%.2f",n));
 					ttf.setText(sa);
 				}
 				else if((acb1.getSelectedItem()).equals("Foot") && (acb2.getSelectedItem()).equals("Mile"))
 				{
 					n=(Double.parseDouble(ftf.getText()) / 5280);
-					sa=String.valueOf(n);
+					sa=String.valueOf(String.format("%.2f",n));
 					ttf.setText(sa);
 				}
 				else if((acb1.getSelectedItem()).equals("Foot") && (acb2.getSelectedItem()).equals("Inch"))
 				{
 					n=(Double.parseDouble(ftf.getText()) * 12);
-					sa=String.valueOf(n);
+					sa=String.valueOf(String.format("%.2f",n));
 					ttf.setText(sa);
 				}
 				else if((acb1.getSelectedItem()).equals("Inch") && (acb2.getSelectedItem()).equals("Kilometer"))
 				{
 					n=(Double.parseDouble(ftf.getText()) / 39370);
-					sa=String.valueOf(n);
+					sa=String.valueOf(String.format("%.2f",n));
 					ttf.setText(sa);
 				}
 				else if((acb1.getSelectedItem()).equals("Inch") && (acb2.getSelectedItem()).equals("Meter"))
 				{
 					n=(Double.parseDouble(ftf.getText()) / 39.37);
-					sa=String.valueOf(n);
+					sa=String.valueOf(String.format("%.2f",n));
 					ttf.setText(sa);
 				}
 				else if((acb1.getSelectedItem()).equals("Inch") && (acb2.getSelectedItem()).equals("Centimeter"))
 				{
 					n=(Double.parseDouble(ftf.getText()) * 2.54);
-					sa=String.valueOf(n);
+					sa=String.valueOf(String.format("%.2f",n));
 					ttf.setText(sa);
 				}
 				else if((acb1.getSelectedItem()).equals("Inch") && (acb2.getSelectedItem()).equals("Mile"))
 				{
 					n=(Double.parseDouble(ftf.getText()) / 63360);
-					sa=String.valueOf(n);
+					sa=String.valueOf(String.format("%.2f",n));
 					ttf.setText(sa);
 				}
 				else if((acb1.getSelectedItem()).equals("Inch") && (acb2.getSelectedItem()).equals("Foot"))
 				{
 					n=(Double.parseDouble(ftf.getText()) / 12);
-					sa=String.valueOf(n);
+					sa=String.valueOf(String.format("%.2f",n));
 					ttf.setText(sa);
 				}
 				else
@@ -995,7 +992,7 @@ class UnitConverterTab extends JPanel
 			acb1=new JComboBox<>(from);
 
 			//Creating to ->TextField, Combobox
-			String to[]={"m/s","km/hr","miles/hr"};
+			String to[]={"km/hr","m/s","miles/hr"};
 			ttf=new JTextField(6);
 			ttf.setEditable(false);
 			acb2=new JComboBox<>(to);
@@ -1047,36 +1044,37 @@ class UnitConverterTab extends JPanel
 				if((acb1.getSelectedItem()).equals("m/s") && (acb2.getSelectedItem()).equals("km/hr"))
 				{
 					n=(Double.parseDouble(ftf.getText()) * 3.6);
+					sa=String.valueOf(String.format("%.2f",n));
 					ttf.setText(sa);
 				}
 				else if((acb1.getSelectedItem()).equals("m/s") && (acb2.getSelectedItem()).equals("miles/hr"))
 				{
 					n=(Double.parseDouble(ftf.getText()) * 2.237);
-					sa=String.valueOf(n);
+					sa=String.valueOf(String.format("%.2f",n));
 					ttf.setText(sa);
 				}
 				else if((acb1.getSelectedItem()).equals("km/hr") && (acb2.getSelectedItem()).equals("m/s"))
 				{
 					n=(Double.parseDouble(ftf.getText()) / 3.6);
-					sa=String.valueOf(n);
+					sa=String.valueOf(String.format("%.2f",n));
 					ttf.setText(sa);
 				}
 				else if((acb1.getSelectedItem()).equals("km/hr") && (acb2.getSelectedItem()).equals("miles/hr"))
 				{
 					n=(Double.parseDouble(ftf.getText()) / 1.609);
-					sa=String.valueOf(n);
+					sa=String.valueOf(String.format("%.2f",n));
 					ttf.setText(sa);
 				}
 				else if((acb1.getSelectedItem()).equals("miles/hr") && (acb2.getSelectedItem()).equals("m/s"))
 				{
 					n=(Double.parseDouble(ftf.getText()) * 2.237);
-					sa=String.valueOf(n);
+					sa=String.valueOf(String.format("%.2f",n));
 					ttf.setText(sa);
 				}
 				else if((acb1.getSelectedItem()).equals("miles/hr") && (acb2.getSelectedItem()).equals("km/hr"))
 				{
 					n=(Double.parseDouble(ftf.getText()) * 1.609);
-					sa=String.valueOf(n);
+					sa=String.valueOf(String.format("%.2f",n));
 					ttf.setText(sa);
 				}
 				else
@@ -1104,7 +1102,7 @@ class UnitConverterTab extends JPanel
 			acb1=new JComboBox<>(from);
 
 			//Creating to ->TextField, Combobox
-			String to[]={"Cubic Meter","ml","liter"};
+			String to[]={"ml","Cubic Meter","liter"};
 			ttf=new JTextField(6);
 			ttf.setEditable(false);
 			acb2=new JComboBox<>(to);
@@ -1156,37 +1154,37 @@ class UnitConverterTab extends JPanel
 				if((acb1.getSelectedItem()).equals("Cubic Meter") && (acb2.getSelectedItem()).equals("ml"))
 				{
 					n=(Double.parseDouble(ftf.getText()) * 1e+6);
-					sa=String.valueOf(n);
+					sa=String.valueOf(String.format("%.2f",n));
 					ttf.setText(sa);
 				}
 				else if((acb1.getSelectedItem()).equals("Cubic Meter") && (acb2.getSelectedItem()).equals("liter"))
 				{
 					n=(Double.parseDouble(ftf.getText()) * 1000);
-					sa=String.valueOf(n);
+					sa=String.valueOf(String.format("%.2f",n));
 					ttf.setText(sa);
 				}
 				else if((acb1.getSelectedItem()).equals("ml") && (acb2.getSelectedItem()).equals("Cubic Meter"))
 				{
 					n=(Double.parseDouble(ftf.getText()) / 1e-6);
-					sa=String.valueOf(n);
+					sa=String.valueOf(String.format("%.2f",n));
 					ttf.setText(sa);
 				}
 				else if((acb1.getSelectedItem()).equals("ml") && (acb2.getSelectedItem()).equals("liter"))
 				{
 					n=(Double.parseDouble(ftf.getText()) / 1000);
-					sa=String.valueOf(n);
+					sa=String.valueOf(String.format("%.2f",n));
 					ttf.setText(sa);
 				}
 				else if((acb1.getSelectedItem()).equals("liter") && (acb2.getSelectedItem()).equals("Cubic Meter"))
 				{
 					n=(Double.parseDouble(ftf.getText()) / 1000);
-					sa=String.valueOf(n);
+					sa=String.valueOf(String.format("%.2f",n));
 					ttf.setText(sa);
 				}
 				else if((acb1.getSelectedItem()).equals("liter") && (acb2.getSelectedItem()).equals("ml"))
 				{
 					n=(Double.parseDouble(ftf.getText()) * 1000);
-					sa=String.valueOf(n);
+					sa=String.valueOf(String.format("%.2f",n));
 					ttf.setText(sa);
 				}
 				else
@@ -1214,7 +1212,7 @@ class UnitConverterTab extends JPanel
 			acb1=new JComboBox<>(from);
 
 			//Creating to ->TextField, Combobox
-			String to[]={"Celsius","Fahrenheit","Kelvin","Rankine"};
+			String to[]={"Fahrenheit","Celsius","Kelvin","Rankine"};
 			ttf=new JTextField(6);
 			ttf.setEditable(false);
 			acb2=new JComboBox<>(to);
@@ -1266,73 +1264,73 @@ class UnitConverterTab extends JPanel
 				if((acb1.getSelectedItem()).equals("Celsius") && (acb2.getSelectedItem()).equals("Fahrenheit"))
 				{
 					n=((Double.parseDouble(ftf.getText()) * 9/5) + 32);
-					sa=String.valueOf(n);
+					sa=String.valueOf(String.format("%.2f",n));
 					ttf.setText(sa);
 				}
 				else if((acb1.getSelectedItem()).equals("Celsius") && (acb2.getSelectedItem()).equals("Kelvin"))
 				{
 					n=(Double.parseDouble(ftf.getText()) + 273.15);
-					sa=String.valueOf(n);
+					sa=String.valueOf(String.format("%.2f",n));
 					ttf.setText(sa);
 				}
 				else if((acb1.getSelectedItem()).equals("Celsius") && (acb2.getSelectedItem()).equals("Rankine"))
 				{
 					n=((Double.parseDouble(ftf.getText()) * 9/5) + 491.67);
-					sa=String.valueOf(n);
+					sa=String.valueOf(String.format("%.2f",n));
 					ttf.setText(sa);
 				}
 				else if((acb1.getSelectedItem()).equals("Fahrenheit") && (acb2.getSelectedItem()).equals("Celsius"))
 				{
 					n=((Double.parseDouble(ftf.getText()) - 32) * 5/9);
-					sa=String.valueOf(n);
+					sa=String.valueOf(String.format("%.2f",n));
 					ttf.setText(sa);
 				}
 				else if((acb1.getSelectedItem()).equals("Fahrenheit") && (acb2.getSelectedItem()).equals("Kelvin"))
 				{
 					n=((Double.parseDouble(ftf.getText()) - 32) * 5/9 + 273.15);
-					sa=String.valueOf(n);
+					sa=String.valueOf(String.format("%.2f",n));
 					ttf.setText(sa);
 				}
 				else if((acb1.getSelectedItem()).equals("Fahrenheit") && (acb2.getSelectedItem()).equals("Rankine"))
 				{
 					n=(Double.parseDouble(ftf.getText()) + 459.67);
-					sa=String.valueOf(n);
+					sa=String.valueOf(String.format("%.2f",n));
 					ttf.setText(sa);
 				}
 				else if((acb1.getSelectedItem()).equals("Kelvin") && (acb2.getSelectedItem()).equals("Celsius"))
 				{
 					n=(Double.parseDouble(ftf.getText()) - 273.15);
-					sa=String.valueOf(n);
+					sa=String.valueOf(String.format("%.2f",n));
 					ttf.setText(sa);
 				}
 				else if((acb1.getSelectedItem()).equals("Kelvin") && (acb2.getSelectedItem()).equals("Fahrenheit"))
 				{
 					n=((Double.parseDouble(ftf.getText()) - 273.15) * 9/5 + 32);
-					sa=String.valueOf(n);
+					sa=String.valueOf(String.format("%.2f",n));
 					ttf.setText(sa);
 				}
 				else if((acb1.getSelectedItem()).equals("Kelvin") && (acb2.getSelectedItem()).equals("Rankine"))
 				{
 					n=(Double.parseDouble(ftf.getText()) * 1.8);
-					sa=String.valueOf(n);
+					sa=String.valueOf(String.format("%.2f",n));
 					ttf.setText(sa);
 				}
 				else if((acb1.getSelectedItem()).equals("Rankine") && (acb2.getSelectedItem()).equals("Celsius"))
 				{
 					n=((Double.parseDouble(ftf.getText()) - 491.67) * 5/9);
-					sa=String.valueOf(n);
+					sa=String.valueOf(String.format("%.2f",n));
 					ttf.setText(sa);
 				}
 				else if((acb1.getSelectedItem()).equals("Rankine") && (acb2.getSelectedItem()).equals("Fahrenheit"))
 				{
 					n=(Double.parseDouble(ftf.getText()) - 459.67);
-					sa=String.valueOf(n);
+					sa=String.valueOf(String.format("%.2f",n));
 					ttf.setText(sa);
 				}
 				else if((acb1.getSelectedItem()).equals("Rankine") && (acb2.getSelectedItem()).equals("Kelvin"))
 				{
 					n=(Double.parseDouble(ftf.getText()) * 5/9);
-					sa=String.valueOf(n);
+					sa=String.valueOf(String.format("%.2f",n));
 					ttf.setText(sa);
 				}
 				else
@@ -1378,7 +1376,7 @@ class MoreTab extends JPanel
 		//Creating Tabs 
 		mtp.add("BMI",new BMI());
 		mtp.add("GST",new GST());
-		mtp.add("Split",new Split());
+		mtp.add("Split Money",new Split());
 		mtp.setFont(new Font("Helvetica", Font.BOLD, 12));
 
 		//Adding Tabs to Panel
@@ -1645,7 +1643,7 @@ class MoreTab extends JPanel
 				   int l = value.length();
 				   if (ke.getKeyChar() >= '0' && ke.getKeyChar() <= '9' || ke.getKeyChar() == '.') {
 					  ftf.setEditable(true);
-				   } else {
+				   }else {
 					  ftf.setEditable(false);
 				   }
 				}
